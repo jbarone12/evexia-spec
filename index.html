@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evexia Primary Care | Whole-Person Health in Scottsdale, AZ</title>
+<meta name="description" content="Evexia Primary Care offers personalized, prevention-focused primary care in Scottsdale, AZ. Founded by Nina Pliakos, FNP-C — accepting new patients.">
+<meta property="og:title" content="Evexia Primary Care | Whole-Person Health in Scottsdale">
+<meta property="og:description" content="Primary care rooted in prevention, integrity, and compassionate partnership. Now accepting new patients in Scottsdale, AZ.">
+<meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/69a82593885cae4e228d4d4b/1772629958223-3N5OTE07ZPVNEKI56JQH/unsplash-image-kCmsFXItVN0.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+<style>
+:root {
+  --gold: #C4A265;
+  --gold-light: #D4B87A;
+  --dark: #141414;
+  --dark-surface: #1E1E1E;
+  --dark-card: #252525;
+  --cream: #FAF7F2;
+  --cream-dark: #F0EBE3;
+  --text-dark: #1a1a1a;
+  --text-light: #F5F0EB;
+  --text-muted: #999;
+  --sage: #8B9A7E;
+  --warm: #C4917A;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-dark);
+  background: var(--cream);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 { font-family: 'Cormorant Garamond', serif; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+/* ===== HEADER ===== */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1.25rem 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.4s ease;
+}
+.site-header.scrolled {
+  background: rgba(20,20,20,0.95);
+  backdrop-filter: blur(20px);
+  padding: 0.75rem 3rem;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+.header-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 600; color: white;
+  text-decoration: none; letter-spacing: 0.02em;
+}
+.header-logo span { color: var(--gold); }
+.header-nav { display: flex; align-items: center; gap: 2rem; }
+.header-nav a {
+  color: white; text-decoration: none; font-size: 0.8rem;
+  font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  opacity: 0.85; transition: opacity 0.3s;
+}
+.header-nav a:hover { opacity: 1; }
+.btn-book {
+  display: inline-block; background: var(--gold); color: white;
+  padding: 0.7rem 1.8rem; font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;
+  border: none; cursor: pointer; transition: all 0.3s ease;
+}
+.btn-book:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-outline {
+  display: inline-block; border: 1px solid rgba(255,255,255,0.4); color: white;
+  padding: 0.7rem 1.8rem; font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+/* Mobile Toggle */
+.mobile-toggle {
+  display: none; background: none; border: none; cursor: pointer;
+  width: 30px; height: 24px; position: relative; z-index: 1001;
+}
+.mobile-toggle span {
+  display: block; width: 100%; height: 2px; background: white;
+  position: absolute; left: 0; transition: all 0.3s;
+}
+.mobile-toggle span:nth-child(1) { top: 0; }
+.mobile-toggle span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.mobile-toggle span:nth-child(3) { bottom: 0; }
+.mobile-toggle.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+.mobile-toggle.active span:nth-child(2) { opacity: 0; }
+.mobile-toggle.active span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+
+.mobile-nav {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(20,20,20,0.98); z-index: 999;
+  flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  color: white; text-decoration: none; font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 400; opacity: 0.85; transition: opacity 0.3s;
+}
+.mobile-nav a:hover { opacity: 1; color: var(--gold); }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative; height: 100vh; display: flex; align-items: center;
+  justify-content: center; text-align: center; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1920&q=80') center/cover no-repeat;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(20,20,20,0.6), rgba(20,20,20,0.75));
+}
+.hero-content { position: relative; z-index: 2; max-width: 750px; padding: 0 2rem; }
+.hero-badge {
+  display: inline-block; border: 1px solid rgba(196,162,101,0.4);
+  padding: 0.5rem 1.5rem; font-size: 0.72rem; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 2rem;
+}
+.hero h1 {
+  font-size: 3.8rem; font-weight: 300; color: white; line-height: 1.15; margin-bottom: 1.5rem;
+}
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub {
+  font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.7;
+  max-width: 550px; margin: 0 auto 2.5rem;
+}
+.hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.hero-scroll {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.65rem;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+}
+.hero-scroll span {
+  width: 1px; height: 40px; background: rgba(255,255,255,0.2);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse { 0%,100% { opacity:0.3; } 50% { opacity:1; } }
+
+/* ===== SECTION LABELS ===== */
+.section-label {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+  font-family: 'DM Sans', sans-serif;
+}
+.section-title {
+  font-size: 2.6rem; font-weight: 400; line-height: 1.2; margin-bottom: 2rem;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+
+/* ===== ABOUT ===== */
+.about { padding: 7rem 0; background: var(--cream); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+}
+.about-image { position: relative; }
+.about-image img {
+  width: 100%; height: 500px; object-fit: cover;
+}
+.about-image-accent {
+  position: absolute; top: -15px; left: -15px; right: 15px; bottom: 15px;
+  border: 1px solid var(--gold); opacity: 0.3; z-index: -1;
+}
+.about-text .highlight {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+  font-style: italic; color: var(--gold); margin-bottom: 1.5rem;
+  line-height: 1.6; border-left: 2px solid var(--gold); padding-left: 1.2rem;
+}
+.about-text p { font-size: 0.95rem; line-height: 1.8; color: #555; margin-bottom: 1rem; }
+.about-stats {
+  display: flex; gap: 2.5rem; margin-top: 2.5rem; padding-top: 2rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif; font-size: 2.2rem;
+  font-weight: 600; color: var(--gold);
+}
+.stat-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-top: 0.25rem; }
+
+/* ===== PHILOSOPHY ===== */
+.philosophy {
+  background: var(--dark); padding: 5rem 0; text-align: center;
+}
+.philosophy-inner { max-width: 800px; margin: 0 auto; }
+.philosophy h2 {
+  font-size: 2rem; font-weight: 300; color: white; line-height: 1.5;
+  margin-bottom: 2rem;
+}
+.philosophy h2 em { color: var(--gold); font-style: italic; }
+.philosophy-divider {
+  width: 60px; height: 1px; background: var(--gold); margin: 0 auto 2rem;
+}
+.philosophy p {
+  font-size: 0.95rem; line-height: 1.8; color: rgba(255,255,255,0.6);
+  max-width: 650px; margin: 0 auto;
+}
+
+/* ===== SERVICES ===== */
+.services { padding: 7rem 0; background: var(--cream); }
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+  margin-top: 1rem;
+}
+.service-card {
+  position: relative; height: 380px; overflow: hidden; cursor: pointer;
+}
+.service-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.service-card:hover img { transform: scale(1.05); }
+.service-card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(20,20,20,0.9) 0%, rgba(20,20,20,0.3) 50%, transparent 100%);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 2rem;
+}
+.service-card h3 {
+  font-size: 1.5rem; color: white; font-weight: 400; margin-bottom: 0.5rem;
+}
+.service-card p {
+  font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 1rem;
+}
+.learn-more {
+  color: var(--gold); text-decoration: none; font-size: 0.75rem;
+  letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500;
+}
+.learn-more:hover { color: var(--gold-light); }
+.services-row2 {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;
+}
+
+/* ===== PROVIDER ===== */
+.provider { padding: 7rem 0; background: var(--dark); }
+.provider-grid {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center;
+}
+.provider-image { position: relative; }
+.provider-image img {
+  width: 100%; height: 550px; object-fit: cover; object-position: center top;
+}
+.provider-image-frame {
+  position: absolute; top: 15px; left: 15px; right: -15px; bottom: -15px;
+  border: 1px solid rgba(196,162,101,0.25); z-index: -1;
+}
+.provider-text .section-title { color: white; }
+.provider-text p { font-size: 0.95rem; line-height: 1.8; color: rgba(255,255,255,0.6); margin-bottom: 1rem; }
+.provider-name {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.6rem;
+  color: var(--gold); margin-bottom: 0.25rem;
+}
+.provider-cred {
+  font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 1.5rem;
+}
+.provider-edu {
+  margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08);
+}
+.provider-edu h4 {
+  font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+}
+.provider-edu li {
+  font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 0.5rem;
+  list-style: none; padding-left: 1rem; position: relative;
+}
+.provider-edu li::before {
+  content: ''; position: absolute; left: 0; top: 8px;
+  width: 4px; height: 4px; background: var(--gold); border-radius: 50%;
+}
+
+/* ===== APPROACH ===== */
+.approach { padding: 7rem 0; background: var(--cream); }
+.approach-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 2rem;
+}
+.approach-card {
+  text-align: center; padding: 2.5rem 1.5rem;
+  border: 1px solid rgba(0,0,0,0.06); transition: all 0.4s ease;
+}
+.approach-card:hover {
+  border-color: rgba(196,162,101,0.3); transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+}
+.approach-num {
+  font-family: 'Cormorant Garamond', serif; font-size: 2.5rem;
+  color: var(--gold); font-weight: 300; margin-bottom: 1rem;
+}
+.approach-card h3 {
+  font-size: 1.2rem; font-weight: 400; margin-bottom: 0.75rem; color: var(--text-dark);
+}
+.approach-card p {
+  font-size: 0.85rem; color: #777; line-height: 1.6;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials { padding: 7rem 0; background: var(--dark-surface); }
+.testimonial-slide {
+  background: var(--dark-card); padding: 2.5rem; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.testimonial-stars { color: var(--gold); font-size: 1rem; margin-bottom: 1.5rem; letter-spacing: 0.2em; }
+.testimonial-text {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;
+  font-style: italic; color: rgba(255,255,255,0.8); line-height: 1.7;
+  flex: 1; margin-bottom: 1.5rem;
+}
+.testimonial-author { color: white; font-weight: 600; font-size: 0.85rem; }
+.testimonial-service { color: rgba(255,255,255,0.4); font-size: 0.75rem; margin-top: 0.25rem; }
+.swiper-pagination-bullet { background: rgba(255,255,255,0.3); opacity: 1; }
+.swiper-pagination-bullet-active { background: var(--gold); }
+
+/* ===== INSURANCE ===== */
+.insurance { padding: 5rem 0; background: var(--cream); text-align: center; }
+.insurance-inner { max-width: 700px; margin: 0 auto; }
+.insurance p { font-size: 0.95rem; color: #555; line-height: 1.8; margin-bottom: 1.5rem; }
+.insurance-list {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.insurance-tag {
+  padding: 0.5rem 1.2rem; border: 1px solid rgba(196,162,101,0.2);
+  background: rgba(196,162,101,0.03); font-size: 0.8rem; color: #555;
+  letter-spacing: 0.05em; transition: all 0.3s;
+}
+.insurance-tag:hover { border-color: rgba(196,162,101,0.5); background: rgba(196,162,101,0.08); }
+
+/* ===== BOOKING BAR ===== */
+.booking-bar {
+  background: var(--gold); padding: 4rem 0; text-align: center;
+}
+.booking-bar h3 {
+  font-size: 2rem; color: white; font-weight: 400; margin-bottom: 0.75rem;
+}
+.booking-bar p { color: rgba(255,255,255,0.8); font-size: 0.95rem; margin-bottom: 2rem; }
+.btn-book-dark {
+  background: var(--dark); color: white; padding: 0.8rem 2.5rem;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; text-decoration: none; transition: all 0.3s;
+}
+.btn-book-dark:hover { background: #333; transform: translateY(-1px); }
+
+/* ===== NEWSLETTER ===== */
+.cta-section { padding: 5rem 0; background: var(--dark); }
+.cta-form {
+  display: flex; max-width: 480px; margin: 2rem auto 0; gap: 0;
+}
+.cta-form input {
+  flex: 1; padding: 0.9rem 1.2rem; background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12); border-right: none;
+  color: white; font-size: 0.85rem; font-family: 'DM Sans', sans-serif; outline: none;
+}
+.cta-form input::placeholder { color: rgba(255,255,255,0.3); }
+.cta-form button {
+  padding: 0.9rem 2rem; background: var(--gold); border: 1px solid var(--gold);
+  color: white; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; cursor: pointer; font-family: 'DM Sans', sans-serif;
+  transition: background 0.3s;
+}
+.cta-form button:hover { background: var(--gold-light); }
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: var(--dark); color: rgba(255,255,255,0.6); padding: 5rem 0 2rem;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem; margin-bottom: 3rem;
+}
+.footer-brand-name {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+  color: white; margin-bottom: 1.5rem;
+}
+.footer-brand-name span { color: var(--gold); }
+.footer-brand p { font-size: 0.85rem; line-height: 1.7; margin-bottom: 1.5rem; }
+.footer-col h4 {
+  font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; color: white; margin-bottom: 1.5rem;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 0.75rem; }
+.footer-col a {
+  color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem;
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--gold); }
+.footer-hours li {
+  font-size: 0.85rem; display: flex; justify-content: space-between;
+}
+.footer-hours li span:first-child { color: rgba(255,255,255,0.7); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08); padding-top: 2rem;
+  display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem;
+}
+.footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+.footer-bottom a:hover { color: var(--gold); }
+
+/* ===== MOBILE ===== */
+@media (max-width: 1024px) {
+  .site-header { padding: 1rem 1.5rem; }
+  .header-nav { display: none; }
+  .mobile-toggle { display: block; }
+  .about-grid, .provider-grid, .footer-grid { grid-template-columns: 1fr; }
+  .services-grid, .services-row2 { grid-template-columns: 1fr 1fr; }
+  .approach-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .services-grid, .services-row2 { grid-template-columns: 1fr; }
+  .service-card { height: 320px; }
+  .hero h1 { font-size: 2.4rem; }
+  .site-header { padding: 1rem; }
+  .cta-form { flex-direction: column; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .about-stats { flex-direction: column; gap: 1.5rem; }
+  .approach-grid { grid-template-columns: 1fr; }
+  .section-title { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header" id="header">
+  <a href="#" class="header-logo">Evexia <span>Primary Care</span></a>
+  <nav class="header-nav">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#provider">Your Provider</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:6027825740" class="header-phone">(602) 782-5740</a>
+    <a href="https://www.evexiaprimarycare.com/" class="btn-book" target="_blank">Book Now</a>
+  </nav>
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile Nav Overlay -->
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#provider">Your Provider</a>
+  <a href="#testimonials">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:6027825740">(602) 782-5740</a>
+  <a href="https://www.evexiaprimarycare.com/" class="btn-book" target="_blank">Book Now</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+    <div class="hero-badge">Now Accepting New Patients</div>
+    <h1>Primary Care Rooted in <em>Prevention</em></h1>
+    <p class="hero-sub">Personalized, whole-person healthcare built on partnership, trust, and thoughtful medical guidance in the heart of Scottsdale.</p>
+    <div class="hero-ctas">
+      <a href="https://www.evexiaprimarycare.com/" class="btn-book" target="_blank">Schedule Your Visit</a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+  </div>
+  <a href="#about" class="hero-scroll">
+    Discover
+    <span></span>
+  </a>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image" data-aos="fade-right" data-aos-duration="1000">
+        <div class="about-image-accent"></div>
+        <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80" alt="Modern primary care office" loading="lazy">
+      </div>
+      <div class="about-text" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+        <div class="section-label">Welcome</div>
+        <h2 class="section-title">A State of <em>Optimal Well-Being</em></h2>
+        <div class="highlight">"Evexia" means a state of optimal well-being &mdash; vitality of mind, body, and spirit.</div>
+        <p>Evexia Primary Care is more than a doctor's office. It's a space where healthcare feels approachable, collaborative, and deeply personal. Every visit is relaxed and conversational, grounded in evidence-based medicine.</p>
+        <p>Founded by board-certified Family Nurse Practitioner Nina Pliakos, we believe primary care should be proactive, not reactive. We focus on prevention, early detection, and building lasting relationships with our patients.</p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="stat-num">FNP-C</div>
+            <div class="stat-label">Board Certified</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Degrees Earned</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">5&#9733;</div>
+            <div class="stat-label">Patient Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHILOSOPHY ===== -->
+<section class="philosophy">
+  <div class="container">
+    <div class="philosophy-inner" data-aos="fade-up" data-aos-duration="1200">
+      <div class="section-label" style="text-align:center;">Our Philosophy</div>
+      <h2>"Primary care rooted in <em>prevention, integrity, and compassionate partnership</em> &mdash; because your health deserves more than 15 minutes."</h2>
+      <div class="philosophy-divider"></div>
+      <p>At Evexia, we take the time to listen, understand your concerns, and build a care plan that addresses the whole you. No rushed visits, no cookie-cutter medicine. Just thoughtful, personalized healthcare.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:1rem;" data-aos="fade-up">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Our <em>Services</em></h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" alt="Annual Wellness Exams" loading="lazy">
+        <div class="service-card-overlay">
+          <h3>Annual Wellness Exams</h3>
+          <p>Comprehensive wellness visits including preventative screenings, health risk assessments, and personalized care plans.</p>
+          <a href="https://www.evexiaprimarycare.com/" class="learn-more" target="_blank">Learn more &rarr;</a>
+        </div>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Medical Weight Management" loading="lazy">
+        <div class="service-card-overlay">
+          <h3>Weight Management</h3>
+          <p>Metabolic evaluation, nutrition planning, and medication-assisted options for sustainable, healthy weight loss.</p>
+          <a href="https://www.evexiaprimarycare.com/" class="learn-more" target="_blank">Learn more &rarr;</a>
+        </div>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80" alt="Chronic Disease Management" loading="lazy">
+        <div class="service-card-overlay">
+          <h3>Chronic Disease Management</h3>
+          <p>Expert management of hypertension, diabetes, cholesterol, thyroid conditions, asthma, anxiety, and depression.</p>
+          <a href="https://www.evexiaprimarycare.com/" class="learn-more" target="_blank">Learn more &rarr;</a>
+        </div>
+      </div>
+    </div>
+    <div class="services-row2">
+      <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+        <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&q=80" alt="Women's Health" loading="lazy">
+        <div class="service-card-overlay">
+          <h3>Women's Health</h3>
+          <p>Well-woman exams, pap smears, breast exams, birth control, menopause management, and STI testing.</p>
+          <a href="https://www.evexiaprimarycare.com/" class="learn-more" target="_blank">Learn more &rarr;</a>
+        </div>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600&q=80" alt="Telehealth" loading="lazy">
+        <div class="service-card-overlay">
+          <h3>Telehealth Visits</h3>
+          <p>Convenient virtual appointments from the comfort of your home. Same quality care, no commute required.</p>
+          <a href="https://www.evexiaprimarycare.com/" class="learn-more" target="_blank">Learn more &rarr;</a>
+        </div>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&q=80" alt="Labs and Imaging" loading="lazy">
+        <div class="service-card-overlay">
+          <h3>Labs &amp; Imaging</h3>
+          <p>On-site lab orders and imaging referrals with fast turnaround and transparent results.</p>
+          <a href="https://www.evexiaprimarycare.com/" class="learn-more" target="_blank">Learn more &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROVIDER ===== -->
+<section class="provider" id="provider">
+  <div class="container">
+    <div class="provider-grid">
+      <div class="provider-image" data-aos="fade-right" data-aos-duration="1000">
+        <img src="https://images.squarespace-cdn.com/content/v1/69a82593885cae4e228d4d4b/eb2b5716-190f-4f1e-bcc9-dbb44d2be775/headshot+1.jpg" alt="Nina Pliakos, FNP-C - Founder, Evexia Primary Care" loading="lazy">
+        <div class="provider-image-frame"></div>
+      </div>
+      <div class="provider-text" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+        <div class="section-label">Your Provider</div>
+        <h2 class="section-title">Healthcare That Feels <em>Personal</em></h2>
+        <div class="provider-name">Nina Pliakos, FNP-C</div>
+        <div class="provider-cred">Board-Certified Family Nurse Practitioner &bull; Founder</div>
+        <p>Nina founded Evexia Primary Care with a simple belief: primary care should feel approachable and collaborative. Her visits are relaxed and conversational, while grounded in evidence-based medicine.</p>
+        <p>With a warm bedside manner and genuine passion for patient care, Nina takes the time to listen, answer every question, and build a care plan that addresses your complete well-being.</p>
+        <p>Patients describe Nina as someone who truly makes you feel seen and supported from the moment you walk in.</p>
+        <div class="provider-edu">
+          <h4>Education</h4>
+          <ul>
+            <li>University of Iowa &mdash; Physiology</li>
+            <li>Millikin University &mdash; Bachelor of Science in Nursing</li>
+            <li>University of Cincinnati &mdash; Family Nurse Practitioner</li>
+          </ul>
+        </div>
+        <a href="https://www.evexiaprimarycare.com/" class="btn-book" style="margin-top:1.5rem;" target="_blank">Book with Nina</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APPROACH ===== -->
+<section class="approach" id="approach">
+  <div class="container">
+    <div style="text-align:center;" data-aos="fade-up">
+      <div class="section-label">How We Care</div>
+      <h2 class="section-title">Your Visit <em>Experience</em></h2>
+    </div>
+    <div class="approach-grid">
+      <div class="approach-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="approach-num">01</div>
+        <h3>Book Easily</h3>
+        <p>Schedule online or call/text. Same-week appointments available for new and returning patients.</p>
+      </div>
+      <div class="approach-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="approach-num">02</div>
+        <h3>We Listen</h3>
+        <p>No rushed visits. Nina takes the time to understand your full health picture, concerns, and goals.</p>
+      </div>
+      <div class="approach-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="approach-num">03</div>
+        <h3>Your Plan</h3>
+        <p>A personalized, evidence-based care plan built collaboratively. Your health, your terms.</p>
+      </div>
+      <div class="approach-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="approach-num">04</div>
+        <h3>Ongoing Care</h3>
+        <p>Continuous follow-up, preventive check-ins, and a provider who knows you by name.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3rem;" data-aos="fade-up">
+      <div class="section-label">Patient Experiences</div>
+      <h2 class="section-title" style="color:white;">What Our Patients <em>Say</em></h2>
+    </div>
+    <div class="swiper testimonial-swiper" data-aos="fade-up" data-aos-delay="200">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="testimonial-slide">
+            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <div class="testimonial-text">"Nina has an amazing bedside manner &mdash; warm, friendly, and incredibly personable. From the moment I walked in, I felt comfortable and genuinely cared for."</div>
+            <div class="testimonial-author">Verified Patient</div>
+            <div class="testimonial-service">Annual Wellness Visit</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-slide">
+            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <div class="testimonial-text">"Nina took the time to listen, answered all my questions, and made the entire experience feel easy and thorough. I highly recommend her to anyone looking for a provider who truly cares."</div>
+            <div class="testimonial-author">Verified Patient</div>
+            <div class="testimonial-service">New Patient Visit</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-slide">
+            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <div class="testimonial-text">"Nina is wonderful and I feel fortunate to be under her care. She makes you feel seen and supported &mdash; something that's rare in healthcare today."</div>
+            <div class="testimonial-author">Verified Patient</div>
+            <div class="testimonial-service">Chronic Care Management</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-slide">
+            <div class="testimonial-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <div class="testimonial-text">"Finally found a provider who doesn't rush you out the door. The visit felt like a real conversation about my health. This is what primary care should be."</div>
+            <div class="testimonial-author">Verified Patient</div>
+            <div class="testimonial-service">Telehealth Visit</div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination" style="margin-top:2rem; position:relative;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INSURANCE ===== -->
+<section class="insurance" id="insurance">
+  <div class="container">
+    <div class="insurance-inner" data-aos="fade-up">
+      <div class="section-label">Accepted Insurance</div>
+      <h2 class="section-title">We Work With Your <em>Coverage</em></h2>
+      <p>We accept most major insurance plans. Don't see yours? Give us a call and we'll help you figure out your coverage options.</p>
+      <div class="insurance-list">
+        <div class="insurance-tag">Aetna</div>
+        <div class="insurance-tag">Blue Cross Blue Shield</div>
+        <div class="insurance-tag">Cigna</div>
+        <div class="insurance-tag">UnitedHealthcare</div>
+        <div class="insurance-tag">Humana</div>
+        <div class="insurance-tag">Medicare</div>
+        <div class="insurance-tag">Tricare</div>
+        <div class="insurance-tag">Self-Pay Welcome</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOOKING BAR ===== -->
+<section class="booking-bar" id="book">
+  <div class="container">
+    <h3>Ready to Feel Cared For?</h3>
+    <p>Schedule a visit with Nina &mdash; new patients welcome</p>
+    <a href="tel:6027825740" class="btn-book-dark">Call (602) 782-5740</a>
+    <span style="color:rgba(255,255,255,0.5); margin:0 1rem; font-size:0.85rem;">or</span>
+    <a href="https://www.evexiaprimarycare.com/" class="btn-book-dark" style="background:transparent; border:1px solid rgba(255,255,255,0.4);" target="_blank">Book Online</a>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="cta-section">
+  <div class="container" data-aos="fade-up">
+    <div class="section-label" style="text-align:center;">Stay Connected</div>
+    <h2 class="section-title" style="text-align:center; color:white;">Join Our <em>Newsletter</em></h2>
+    <p style="text-align:center; color:rgba(255,255,255,0.5); max-width:450px; margin:0 auto;">Health tips, wellness insights, and practice updates delivered to your inbox.</p>
+    <form class="cta-form" id="newsletterForm">
+      <input type="email" placeholder="Enter your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Evexia <span>Primary Care</span></div>
+        <p>Personalized, prevention-focused primary care in Scottsdale, Arizona. Where your health story is heard, understood, and supported every step of the way.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Annual Wellness Exams</a></li>
+          <li><a href="#services">Weight Management</a></li>
+          <li><a href="#services">Chronic Disease Management</a></li>
+          <li><a href="#services">Women's Health</a></li>
+          <li><a href="#services">Telehealth Visits</a></li>
+          <li><a href="#services">Labs & Imaging</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#provider">Meet Nina</a></li>
+          <li><a href="https://www.evexiaprimarycare.com/" target="_blank">Book Appointment</a></li>
+          <li><a href="#insurance">Insurance</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <ul class="footer-hours">
+          <li><span>Mon - Fri</span><span>By Appointment</span></li>
+          <li><span>Sat & Sun</span><span>Closed</span></li>
+        </ul>
+        <div style="margin-top:1.5rem;">
+          <h4>Location</h4>
+          <p style="font-size:0.85rem; line-height:1.6; color:rgba(255,255,255,0.5);">9700 N 91st St, Suite A-115<br>Scottsdale, AZ 85258</p>
+          <a href="tel:6027825740" style="color:var(--gold); text-decoration:none; font-size:0.9rem; display:block; margin-top:0.5rem;">(602) 782-5740</a>
+          <a href="mailto:info@evexiaprimarycare.com" style="color:rgba(255,255,255,0.5); text-decoration:none; font-size:0.8rem; display:block; margin-top:0.25rem;">info@evexiaprimarycare.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Evexia Primary Care. All rights reserved.</span>
+      <div style="display:flex; gap:1.5rem;">
+        <a href="https://www.evexiaprimarycare.com/" target="_blank">Privacy Policy</a>
+        <a href="https://www.evexiaprimarycare.com/" target="_blank">Terms of Use</a>
+        <a href="#hero" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to Top</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+// Init AOS
+AOS.init({ once: true, offset: 80 });
+
+// Header scroll effect
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 80);
+});
+
+// Testimonial Swiper
+new Swiper('.testimonial-swiper', {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  loop: true,
+  autoplay: { delay: 5000, disableOnInteraction: false },
+  pagination: { el: '.swiper-pagination', clickable: true },
+  breakpoints: {
+    640: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 }
+  }
+});
+
+// Mobile menu
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileNav = document.getElementById('mobileNav');
+mobileToggle.addEventListener('click', () => {
+  mobileToggle.classList.toggle('active');
+  mobileNav.classList.toggle('open');
+  document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+});
+mobileNav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    mobileToggle.classList.remove('active');
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Newsletter form handler
+document.getElementById('newsletterForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const input = e.target.querySelector('input');
+  const email = input.value.trim();
+  if (email && email.includes('@')) {
+    const btn = e.target.querySelector('button');
+    btn.textContent = 'Subscribed!';
+    btn.style.background = '#78c486';
+    btn.disabled = true;
+    input.value = '';
+    input.placeholder = 'Thank you!';
+    setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; btn.disabled = false; input.placeholder = 'Enter your email address'; }, 3000);
+  }
+});
+</script>
+</body>
+</html>
