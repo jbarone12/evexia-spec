@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nina — About Preview</title>
+<title>About Nina — Preview</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -16,74 +16,94 @@ body { font-family: 'Inter', sans-serif; background: var(--parchment); color: va
 
 .about { padding: 7rem 0; background: var(--parchment); }
 .container { max-width: 1180px; margin: 0 auto; padding: 0 2.5rem; }
-.about-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 5rem; align-items: start; }
-.about-photo-col { position: relative; }
 
-.about-photo-frame { position: relative; }
-.about-photo-frame img {
-  width: 100%; height: 580px; object-fit: cover;
-  object-position: top center; display: block;
-}
-.about-badge {
-  position: absolute; bottom: -1px; right: -1px;
-  background: var(--ivory); padding: 1.5rem 2rem;
-  border-top: 2px solid var(--gold); min-width: 200px;
-}
-.badge-tag { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
-.badge-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--ink); }
-.badge-cred { font-size: 0.7rem; color: var(--ash); letter-spacing: 0.08em; margin-top: 0.2rem; }
+.about-inner { max-width: 780px; }
 
-.about-text-col { padding-top: 1rem; }
-.section-eyebrow { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
-.about-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 400; line-height: 1.25; margin-bottom: 2rem; }
-.about-body p { color: var(--ash); font-size: 0.92rem; line-height: 1.85; margin-bottom: 1.2rem; }
-.about-credentials { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(28,25,20,0.1); display: flex; flex-wrap: wrap; gap: 1.5rem; }
-.cred-item { display: flex; flex-direction: column; gap: 0.2rem; }
-.cred-label { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ash-light); }
-.cred-value { font-size: 0.82rem; color: var(--ink); font-weight: 500; }
+.section-label {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 1.2rem;
+}
+.section-h2 {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400; line-height: 1.15; margin-bottom: 2.5rem;
+}
+.section-h2 em { font-style: italic; color: var(--sage); }
+
+.about-lead {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem; font-weight: 400; line-height: 1.8;
+  color: var(--ink); margin-bottom: 2rem;
+  border-left: 2px solid var(--gold); padding-left: 1.5rem;
+}
+
+.body-text { color: var(--ash); font-size: 0.92rem; line-height: 1.85; margin-bottom: 1.3rem; }
+
+.about-creds {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.2rem; margin-top: 2.5rem; padding-top: 2.5rem;
+  border-top: 1px solid rgba(28,25,20,0.1);
+}
+.cred-school { font-size: 0.74rem; font-weight: 500; letter-spacing: 0.5px; color: var(--ash-light); margin-bottom: 3px; }
+.cred-degree { font-size: 0.88rem; font-weight: 500; color: var(--ink); }
+
+.about-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  margin-top: 2.5rem; border-top: 1px solid rgba(28,25,20,0.1);
+}
+.about-stat { padding: 2rem 0; text-align: center; border-right: 1px solid rgba(28,25,20,0.1); }
+.about-stat:last-child { border-right: none; }
+.about-stat-n { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 500; color: var(--ink); }
+.about-stat-l { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ash-light); margin-top: 0.3rem; }
 </style>
 </head>
 <body>
 
 <section class="about">
   <div class="container">
-    <div class="about-grid">
+    <div class="about-inner">
 
-      <div class="about-photo-col">
-        <div class="about-photo-frame">
-          <img
-            src="https://images.squarespace-cdn.com/content/v1/69a82593885cae4e228d4d4b/eb2b5716-190f-4f1e-bcc9-dbb44d2be775/headshot+1.jpg"
-            alt="Nina Pliakos, FNP-C"
-          >
-          <div class="about-badge">
-            <div class="badge-tag">Your Provider</div>
-            <div class="badge-name">Nina Pliakos</div>
-            <div class="badge-cred">FNP-C · Board Certified</div>
-          </div>
+      <span class="section-label">Meet Nina</span>
+      <h2 class="section-h2">The provider<br><em>you've been looking for</em></h2>
+
+      <p class="about-lead">Board-Certified Family Nurse Practitioner with over a decade of clinical experience. She started Evexia because she believes the patient-provider relationship is the foundation of real healthcare.</p>
+
+      <p class="body-text">Nina spent years in high-volume healthcare settings watching something erode: the relationship between patient and provider. Fifteen-minute appointments. Rotating faces. Charts instead of conversations. She started Evexia to restore what medicine lost.</p>
+
+      <p class="body-text">Her approach is simple — listen first, treat second. Every patient deserves a provider who knows their name, their story, and their goals. Not just their lab values.</p>
+
+      <p class="body-text">Nina's clinical passion is prevention. She believes most chronic disease is not inevitable — it's the result of missed opportunity. At Evexia, that opportunity is never missed.</p>
+
+      <div class="about-creds">
+        <div class="cred-item">
+          <div class="cred-school">Grand Canyon University</div>
+          <div class="cred-degree">Master of Science in Nursing</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-school">Arizona State University</div>
+          <div class="cred-degree">Bachelor of Science in Nursing</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-school">ANCC Certified</div>
+          <div class="cred-degree">Family Nurse Practitioner</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-school">Clinical Focus</div>
+          <div class="cred-degree">Prevention & Women's Health</div>
         </div>
       </div>
 
-      <div class="about-text-col">
-        <div class="section-eyebrow">About Nina</div>
-        <h2 class="about-headline">Primary care the way<br>it was meant to feel.</h2>
-        <div class="about-body">
-          <p>Nina Pliakos is a board-certified Family Nurse Practitioner with over a decade of experience in primary and preventive care. She founded Evexia to reclaim medicine from the assembly-line model — to offer something slower, more personal, and more effective.</p>
-          <p>Her practice is built on the belief that great healthcare starts with a provider who actually knows you. Not your chart. You.</p>
-          <p>Nina offers unhurried appointments, evidence-based care, and a genuine partnership with each patient — whether you're managing a chronic condition, optimizing your health, or just haven't seen a doctor in too long.</p>
+      <div class="about-stats">
+        <div class="about-stat">
+          <div class="about-stat-n">10+</div>
+          <div class="about-stat-l">Years of Practice</div>
         </div>
-        <div class="about-credentials">
-          <div class="cred-item">
-            <span class="cred-label">Credential</span>
-            <span class="cred-value">FNP-C, AANP Certified</span>
-          </div>
-          <div class="cred-item">
-            <span class="cred-label">Experience</span>
-            <span class="cred-value">10+ Years</span>
-          </div>
-          <div class="cred-item">
-            <span class="cred-label">Location</span>
-            <span class="cred-value">Scottsdale, AZ</span>
-          </div>
+        <div class="about-stat">
+          <div class="about-stat-n">45</div>
+          <div class="about-stat-l">Min. Average Visit</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-n">5★</div>
+          <div class="about-stat-l">Patient Rating</div>
         </div>
       </div>
 
