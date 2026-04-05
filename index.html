@@ -18,8 +18,8 @@
   --ink-soft:  #2C2820;
   --ivory:     #F8F5F0;
   --parchment: #EDEAE3;
-  --ash:       #6E6B63;
-  --ash-light: #A09D96;
+  --ash:       #56534C;
+  --ash-light: #8A877F;
   --sage:      #7A8C6E;
   --sage-pale: #E2E8DC;
   --gold:      #B89A66;
@@ -104,7 +104,7 @@ header.scrolled .logo { color: var(--ink); }
   font-weight: 400;
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.8);
   transition: color 0.3s;
   position: relative;
   padding-bottom: 2px;
@@ -256,14 +256,14 @@ header.scrolled .menu-toggle span { background: var(--ink); }
 .hero-h1 em {
   font-style: italic;
   font-weight: 300;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.55);
 }
 
 .hero-body {
   font-size: 0.88rem;
   font-weight: 300;
   line-height: 1.9;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.6);
   max-width: 360px;
   margin-bottom: 2.5rem;
   opacity: 0;
@@ -284,7 +284,8 @@ header.scrolled .menu-toggle span { background: var(--ink); }
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: white;
-  border: 1px solid rgba(255,255,255,0.35);
+  background: var(--sage);
+  border: 1px solid var(--sage);
   padding: 14px 32px;
   transition: all 0.3s;
   display: inline-block;
@@ -295,11 +296,11 @@ header.scrolled .menu-toggle span { background: var(--ink); }
   content: '';
   position: absolute;
   inset: 0;
-  background: white;
+  background: #6B7D5F;
   transform: translateX(-101%);
   transition: transform 0.35s cubic-bezier(0.76,0,0.24,1);
 }
-.btn-hero:hover { color: var(--ink); border-color: white; }
+.btn-hero:hover { color: white; border-color: #6B7D5F; }
 .btn-hero:hover::before { transform: translateX(0); }
 .btn-hero span { position: relative; z-index: 1; }
 
@@ -380,14 +381,6 @@ header.scrolled .menu-toggle span { background: var(--ink); }
   transition: clip-path 1.2s cubic-bezier(0.76,0,0.24,1);
 }
 .reveal-clip.visible { clip-path: inset(0 0 0 0); }
-
-/* Fallback: if observer hasn't fired after 3s, show images anyway */
-@keyframes reveal-clip-fallback {
-  to { clip-path: inset(0 0 0 0); }
-}
-.reveal-clip {
-  animation: reveal-clip-fallback 0s 3s forwards;
-}
 
 /* Stagger variants */
 .reveal[data-delay="1"] { transition-delay: 0.1s; }
@@ -886,6 +879,38 @@ section { padding: 110px 0; }
 .ins-card p:last-child { margin-bottom: 0; }
 
 
+/* Inline booking CTA (used after First Visit section) */
+.steps-cta {
+  text-align: center;
+  margin-top: 3.5rem;
+}
+.btn-book {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: white;
+  background: var(--sage);
+  border: 1px solid var(--sage);
+  padding: 14px 36px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-book::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #6B7D5F;
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.76,0,0.24,1);
+}
+.btn-book:hover { border-color: #6B7D5F; }
+.btn-book:hover::before { transform: translateX(0); }
+.btn-book span { position: relative; z-index: 1; }
+
+
 /* ============================================================
    CTA SECTION
    ============================================================ */
@@ -939,8 +964,9 @@ section { padding: 110px 0; }
   font-weight: 500;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: white;
-  border: 1px solid rgba(255,255,255,0.45);
+  color: var(--ink);
+  background: white;
+  border: 1px solid white;
   padding: 16px 44px;
   transition: all 0.3s;
   position: relative;
@@ -950,11 +976,11 @@ section { padding: 110px 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background: white;
+  background: var(--sage);
   transform: translateX(-101%);
   transition: transform 0.35s cubic-bezier(0.76,0,0.24,1);
 }
-.btn-cta:hover { color: var(--sage); border-color: white; }
+.btn-cta:hover { color: white; border-color: var(--sage); }
 .btn-cta:hover::before { transform: translateX(0); }
 .btn-cta span { position: relative; z-index: 1; }
 
@@ -1031,7 +1057,52 @@ section { padding: 110px 0; }
 .loc-map {
   overflow: hidden;
   min-height: 420px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--parchment);
 }
+.loc-map-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  padding: 3rem;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+.loc-map-link:hover { background: rgba(28,25,20,0.03); }
+.loc-map-pin {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.6;
+}
+.loc-map-addr {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.loc-map-cta {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--sage);
+  border-bottom: 1px solid var(--sage);
+  padding-bottom: 2px;
+  transition: color 0.3s;
+}
+.loc-map-link:hover .loc-map-cta { color: var(--ink); border-color: var(--ink); }
+
+/* Legacy iframe support (hidden by default now) */
 .loc-map iframe {
   width: 100%;
   height: 100%;
@@ -1146,7 +1217,22 @@ footer li a:hover { color: white; }
     min-height: 100svh;
   }
   .hero-right { display: none; }
-  .hero-left { padding: 0 2rem 8vh; padding-top: 110px; min-height: 100svh; }
+  .hero-left {
+    padding: 0 2rem 8vh;
+    padding-top: 110px;
+    min-height: 100svh;
+    background: var(--ink) url('https://images.unsplash.com/photo-1620818789320-78ff6e9eaa54?w=600&q=60&fit=crop') center/cover no-repeat;
+    background-blend-mode: soft-light;
+  }
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(28,25,20,0.88) 0%, rgba(28,25,20,0.95) 60%, rgba(28,25,20,1) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-left > * { position: relative; z-index: 1; }
 
   .phil-grid { grid-template-columns: 1fr; gap: 3rem; }
   .phil-img-wrap::after { display: none; }
@@ -1296,7 +1382,7 @@ footer li a:hover { color: white; }
         <h2 class="section-h2 reveal" data-delay="1">A different kind<br><em>of primary care</em></h2>
         <p class="body-text reveal" data-delay="2">We believe your health is not a problem to be solved. It's a relationship to be built. Evexia exists for patients who want more — more time, more clarity, more of a provider who truly knows them.</p>
         <p class="body-text reveal" data-delay="3">Every visit is unhurried. Every concern is taken seriously. We lead with prevention, speak plainly, and treat you as an intelligent adult who deserves to understand their own health.</p>
-        <blockquote class="phil-quote reveal" data-delay="4">"Evexia" is the ancient Greek word for a state of wellbeing that arises from genuine health — not just the absence of illness, but the presence of vitality.</blockquote>
+        <blockquote class="phil-quote reveal" data-delay="4">We measure success not by the number of patients we see, but by the depth of care we provide to each one.</blockquote>
       </div>
 
     </div>
@@ -1491,6 +1577,10 @@ footer li a:hover { color: white; }
         <p class="step-body">Together you build a personalized plan around your goals — prevention, management, or optimization. It's your health, your plan.</p>
       </div>
     </div>
+
+    <div class="steps-cta reveal" data-delay="3">
+      <a href="#location" class="btn-book"><span>Schedule Your Visit</span></a>
+    </div>
   </div>
 </section>
 
@@ -1563,12 +1653,11 @@ footer li a:hover { color: white; }
       </div>
 
       <div class="loc-map reveal" data-delay="1">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.0!2d-111.8880!3d33.5858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b0895e94a51a7%3A0x4f1c6a19e0a6fbb!2s9700+N+91st+St%2C+Scottsdale%2C+AZ+85258!5e0!3m2!1sen!2sus!4v1700000000000"
-          allowfullscreen=""
-          loading="lazy"
-          title="Evexia Primary Care Location"
-        ></iframe>
+        <a href="https://www.google.com/maps/place/9700+N+91st+St,+Scottsdale,+AZ+85258" target="_blank" rel="noopener" class="loc-map-link">
+          <div class="loc-map-pin">&#x1F4CD;</div>
+          <div class="loc-map-addr">9700 N 91st Street<br>Suite A-115<br>Scottsdale, AZ 85258</div>
+          <span class="loc-map-cta">Get Directions &rarr;</span>
+        </a>
       </div>
 
     </div>
@@ -1705,6 +1794,14 @@ if (heroImg) {
 document.querySelector('.logo').addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// ── Failsafe: force-show all reveal elements after 3s ─
+// Catches cases where IntersectionObserver doesn't fire
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible), .reveal-clip:not(.visible)').forEach(el => {
+    el.classList.add('visible');
+  });
+}, 3000);
 </script>
 
 </body>
