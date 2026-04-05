@@ -318,7 +318,7 @@ header.scrolled .menu-toggle span { background: var(--ink); }
   animation: scrollPulse 2.5s ease-in-out infinite;
 }
 
-/* Right image panel — warm light & botanical shadow */
+/* Right image panel — botanical in natural light */
 .hero-right {
   position: relative;
   overflow: hidden;
@@ -328,8 +328,9 @@ header.scrolled .menu-toggle span { background: var(--ink); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center 20%;
   transform: scale(1.06);
+  filter: sepia(0.08) saturate(1.1) brightness(1.02);
   animation: imgSettle 1.6s cubic-bezier(0.16,1,0.3,1) 0s forwards;
 }
 
@@ -1238,8 +1239,8 @@ footer li a:hover { color: white; }
   <div class="hero-right">
     <img
       class="hero-img"
-      src="https://images.unsplash.com/photo-1604147706283-d7119b5b822c?w=1200&q=90&fit=crop"
-      alt="Warm light and botanical shadow — Evexia Primary Care"
+      src="https://images.unsplash.com/photo-1620818789320-78ff6e9eaa54?w=1200&q=90&fit=crop"
+      alt="Green botanical in natural light — Evexia Primary Care"
     >
   </div>
 
