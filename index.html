@@ -318,7 +318,7 @@ header.scrolled .menu-toggle span { background: var(--ink); }
   animation: scrollPulse 2.5s ease-in-out infinite;
 }
 
-/* Right image panel */
+/* Right image panel — Nina's headshot */
 .hero-right {
   position: relative;
   overflow: hidden;
@@ -328,7 +328,7 @@ header.scrolled .menu-toggle span { background: var(--ink); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 15%;
   transform: scale(1.06);
   animation: imgSettle 1.6s cubic-bezier(0.16,1,0.3,1) 0s forwards;
 }
@@ -526,65 +526,26 @@ section { padding: 110px 0; }
 
 
 /* ============================================================
-   ABOUT NINA (only use of her photo)
+   ABOUT NINA — editorial text-focused layout (photo is in hero)
    ============================================================ */
 .about { background: var(--parchment); }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 5fr 6fr;
-  gap: 5rem;
-  align-items: start;
+.about-inner {
+  max-width: 780px;
 }
 
-.about-photo-col { position: sticky; top: 110px; }
-
-.about-photo-frame {
-  position: relative;
-}
-
-.about-photo-frame img {
-  width: 100%;
-  height: 580px;
-  object-fit: cover;
-  object-position: center top;
-}
-
-.about-badge {
-  position: absolute;
-  bottom: -1px;
-  right: -2rem;
-  background: var(--white);
-  padding: 1.4rem 1.8rem;
-  box-shadow: var(--shadow-md);
-  min-width: 230px;
-}
-
-.badge-tag {
-  font-size: 0.66rem;
-  font-weight: 500;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--sage);
-  margin-bottom: 6px;
-}
-
-.badge-name {
+.about-lead {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.8;
   color: var(--ink);
-  margin-bottom: 3px;
+  margin-bottom: 2rem;
+  border-left: 2px solid var(--gold);
+  padding-left: 1.5rem;
 }
 
-.badge-cred {
-  font-size: 0.76rem;
-  color: var(--ash);
-}
-
-.about-content { padding-top: 1rem; }
-
-.about-content .body-text { margin-bottom: 1.3rem; }
+.about-inner .body-text { margin-bottom: 1.3rem; }
 
 .about-creds {
   display: grid;
@@ -1110,8 +1071,7 @@ footer li a:hover { color: white; }
 @media (max-width: 1024px) {
   .svc-row { grid-template-columns: 60px 1fr; }
   .svc-desc { display: none; }
-  .about-badge { position: static; margin-top: 1.5rem; right: auto; bottom: auto; }
-  .about-photo-col { position: static; }
+  .about-inner { max-width: 100%; }
 }
 
 @media (max-width: 768px) {
@@ -1145,8 +1105,7 @@ footer li a:hover { color: white; }
   .phil-img-wrap::after { display: none; }
   .phil-img { height: 340px; }
 
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .about-photo-frame img { height: 380px; }
+  .about-lead { font-size: 1.15rem; }
   .about-creds { grid-template-columns: 1fr; }
   .about-stats { grid-template-columns: 1fr 1fr; }
   .about-stat:last-child { grid-column: span 2; border-right: none; border-top: 1px solid rgba(28,25,20,0.1); }
@@ -1240,8 +1199,8 @@ footer li a:hover { color: white; }
   <div class="hero-right">
     <img
       class="hero-img"
-      src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=900&q=90&fit=crop&crop=faces,center"
-      alt="Personalized, unhurried care"
+      src="https://images.squarespace-cdn.com/content/v1/69a82593885cae4e228d4d4b/eb2b5716-190f-4f1e-bcc9-dbb44d2be775/headshot+1.jpg"
+      alt="Nina Pliakos, FNP-C — Evexia Primary Care"
     >
   </div>
 
@@ -1297,72 +1256,57 @@ footer li a:hover { color: white; }
 
 
 <!-- ============================================================
-     ABOUT NINA — only appearance of her photo
+     ABOUT NINA — editorial text layout (photo is in hero)
      ============================================================ -->
 <section class="about" id="about">
   <div class="container">
-    <div class="about-grid">
+    <div class="about-inner">
 
-      <div class="about-photo-col">
-        <div class="about-photo-frame">
-          <img
-            class="reveal-clip"
-            src="https://images.squarespace-cdn.com/content/v1/69a82593885cae4e228d4d4b/eb2b5716-190f-4f1e-bcc9-dbb44d2be775/headshot+1.jpg"
-            alt="Nina Pliakos, FNP-C"
-          >
-          <div class="about-badge reveal" data-delay="2">
-            <div class="badge-tag">Your Provider</div>
-            <div class="badge-name">Nina Pliakos</div>
-            <div class="badge-cred">FNP-C · Board-Certified Family NP</div>
-          </div>
+      <span class="section-label reveal">Meet Nina</span>
+      <h2 class="section-h2 reveal" data-delay="1">The provider<br><em>you've been looking for</em></h2>
+
+      <p class="about-lead reveal" data-delay="2">Board-Certified Family Nurse Practitioner with over a decade of clinical experience. She started Evexia because she believes the patient-provider relationship is the foundation of real healthcare.</p>
+
+      <p class="body-text reveal" data-delay="3">Nina spent years in high-volume healthcare settings watching something erode: the relationship between patient and provider. Fifteen-minute appointments. Rotating faces. Charts instead of conversations. She started Evexia to restore what medicine lost.</p>
+
+      <p class="body-text reveal" data-delay="4">Her approach is simple — listen first, treat second. Every patient deserves a provider who knows their name, their story, and their goals. Not just their lab values.</p>
+
+      <p class="body-text reveal" data-delay="5">Nina's clinical passion is prevention. She believes most chronic disease is not inevitable — it's the result of missed opportunity. At Evexia, that opportunity is never missed.</p>
+
+      <div class="about-creds reveal" data-delay="6">
+        <div class="cred-item">
+          <div class="cred-school">Grand Canyon University</div>
+          <div class="cred-degree">Master of Science in Nursing</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-school">Arizona State University</div>
+          <div class="cred-degree">Bachelor of Science in Nursing</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-school">ANCC Certified</div>
+          <div class="cred-degree">Family Nurse Practitioner</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-school">Clinical Focus</div>
+          <div class="cred-degree">Prevention &amp; Women's Health</div>
         </div>
       </div>
 
-      <div class="about-content">
-        <span class="section-label reveal">Meet Nina</span>
-        <h2 class="section-h2 reveal" data-delay="1">The provider<br><em>you've been looking for</em></h2>
-
-        <p class="body-text reveal" data-delay="2">Nina Pliakos is a Board-Certified Family Nurse Practitioner with over a decade of clinical experience. She spent years in high-volume healthcare settings watching something erode: the relationship between patient and provider. She started Evexia to restore it.</p>
-
-        <p class="body-text reveal" data-delay="3">Her approach is simple — listen first, treat second. Every patient deserves a provider who knows their name, their story, and their goals. Not just their lab values.</p>
-
-        <p class="body-text reveal" data-delay="4">Nina's clinical passion is prevention. She believes most chronic disease is not inevitable — it's the result of missed opportunity. At Evexia, that opportunity is never missed.</p>
-
-        <div class="about-creds reveal" data-delay="5">
-          <div class="cred-item">
-            <div class="cred-school">Grand Canyon University</div>
-            <div class="cred-degree">Master of Science in Nursing</div>
-          </div>
-          <div class="cred-item">
-            <div class="cred-school">Arizona State University</div>
-            <div class="cred-degree">Bachelor of Science in Nursing</div>
-          </div>
-          <div class="cred-item">
-            <div class="cred-school">ANCC Certified</div>
-            <div class="cred-degree">Family Nurse Practitioner</div>
-          </div>
-          <div class="cred-item">
-            <div class="cred-school">Clinical Focus</div>
-            <div class="cred-degree">Prevention &amp; Women's Health</div>
-          </div>
+      <div class="about-stats">
+        <div class="about-stat">
+          <div class="about-stat-n counter" data-target="10" data-suffix="+">0</div>
+          <div class="about-stat-l">Years of Practice</div>
         </div>
-
-        <div class="about-stats">
-          <div class="about-stat">
-            <div class="about-stat-n counter" data-target="10" data-suffix="+">0</div>
-            <div class="about-stat-l">Years of Practice</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat-n counter" data-target="45" data-suffix="">0</div>
-            <div class="about-stat-l">Min. Average Visit</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat-n">5★</div>
-            <div class="about-stat-l">Patient Rating</div>
-          </div>
+        <div class="about-stat">
+          <div class="about-stat-n counter" data-target="45" data-suffix="">0</div>
+          <div class="about-stat-l">Min. Average Visit</div>
         </div>
-
+        <div class="about-stat">
+          <div class="about-stat-n">5★</div>
+          <div class="about-stat-l">Patient Rating</div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
