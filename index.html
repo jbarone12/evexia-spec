@@ -379,7 +379,15 @@ header.scrolled .menu-toggle span { background: var(--ink); }
   clip-path: inset(100% 0 0 0);
   transition: clip-path 1.2s cubic-bezier(0.76,0,0.24,1);
 }
-.reveal-clip.visible { clip-path: inset(0% 0 0 0); }
+.reveal-clip.visible { clip-path: inset(0 0 0 0); }
+
+/* Fallback: if observer hasn't fired after 3s, show images anyway */
+@keyframes reveal-clip-fallback {
+  to { clip-path: inset(0 0 0 0); }
+}
+.reveal-clip {
+  animation: reveal-clip-fallback 0s 3s forwards;
+}
 
 /* Stagger variants */
 .reveal[data-delay="1"] { transition-delay: 0.1s; }
@@ -728,13 +736,13 @@ section { padding: 110px 0; }
 .testimonials { background: var(--ivory); }
 
 .test-inner {
-  max-width: 840px;
-  margin: 3.5rem auto 0;
+  max-width: 720px;
+  margin: 2.5rem auto 0;
 }
 
 .test-item {
   text-align: center;
-  padding: 4rem 0;
+  padding: 2.5rem 0;
   border-bottom: 1px solid rgba(28,25,20,0.08);
   position: relative;
 }
@@ -744,11 +752,11 @@ section { padding: 110px 0; }
 .test-item::before {
   content: '"';
   font-family: 'Cormorant Garamond', serif;
-  font-size: 8rem;
+  font-size: 5rem;
   font-weight: 300;
   color: rgba(28,25,20,0.05);
   position: absolute;
-  top: 1.5rem;
+  top: 0.8rem;
   left: 50%;
   transform: translateX(-50%);
   line-height: 1;
@@ -765,12 +773,12 @@ section { padding: 110px 0; }
 
 .test-quote {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
   font-style: italic;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--ink);
-  margin-bottom: 2rem;
+  margin-bottom: 1.4rem;
   position: relative;
 }
 
@@ -1277,8 +1285,9 @@ footer li a:hover { color: white; }
       <div class="phil-img-wrap">
         <img
           class="phil-img reveal-clip"
-          src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=85"
-          alt="The practice of presence"
+          src="https://images.unsplash.com/photo-1585130557898-0d191552ee66?w=700&q=85&fit=crop"
+          alt="Eucalyptus branches in natural light — Evexia wellness"
+          loading="lazy"
         >
       </div>
 
@@ -1643,7 +1652,7 @@ const revealObserver = new IntersectionObserver(entries => {
       e.target.classList.add('visible');
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
 
 document.querySelectorAll('.reveal, .reveal-clip').forEach(el => {
   revealObserver.observe(el);
