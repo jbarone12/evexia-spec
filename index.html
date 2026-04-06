@@ -563,7 +563,7 @@ html.has-js .reveal-photo:not(.visible) { opacity: 0; transform: scale(1.04); }
 /* ============================================================
    SHARED SECTION ELEMENTS
    ============================================================ */
-section { padding: 110px 0; }
+section { padding: 60px 0; }
 
 .section-label {
   font-size: 0.74rem;
@@ -812,7 +812,7 @@ section { padding: 110px 0; }
 .services .section-h2 em { color: rgba(255,255,255,0.3); }
 
 .svc-list {
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
 .svc-row {
@@ -968,24 +968,32 @@ section { padding: 110px 0; }
 /* ============================================================
    TESTIMONIALS — LARGE CENTERED PULL-QUOTES
    ============================================================ */
-.testimonials { background: var(--ivory); padding: 75px 0; }
+.testimonials { background: var(--ivory); padding: 55px 0; }
 
 .test-inner {
-  max-width: 720px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
   margin: 2.5rem auto 0;
 }
 
 /* Google review anchor badge */
 .review-anchor {
   text-align: center;
-  margin: 0 auto 2rem;
+  margin: 0 auto 2.5rem;
 }
 .review-anchor-stars {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
-  font-weight: 400;
-  color: var(--ink);
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--gold);
   line-height: 1;
+  display: inline-block;
+  animation: gentle-glow 3s ease-in-out infinite;
+}
+@keyframes gentle-glow {
+  0%, 100% { text-shadow: 0 0 0 transparent; }
+  50% { text-shadow: 0 0 18px rgba(184,154,102,0.3); }
 }
 .review-anchor-label {
   display: block;
@@ -994,7 +1002,7 @@ section { padding: 110px 0; }
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--ash);
-  margin-top: 0.4rem;
+  margin-top: 0.5rem;
 }
 .review-anchor-label a {
   color: var(--sage);
@@ -1006,62 +1014,66 @@ section { padding: 110px 0; }
 
 .test-item {
   text-align: center;
-  padding: 1.8rem 0;
-  border-bottom: 1px solid rgba(28,25,20,0.08);
+  padding: 2rem 1.5rem;
+  background: var(--white);
+  border: 1px solid rgba(28,25,20,0.06);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-.test-item:last-child { border-bottom: none; padding-bottom: 0; }
 
 .test-item::before {
   content: '"';
   font-family: 'Cormorant Garamond', serif;
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 300;
-  color: rgba(28,25,20,0.05);
-  position: absolute;
-  top: 0.8rem;
-  left: 50%;
-  transform: translateX(-50%);
+  color: rgba(122,140,110,0.15);
   line-height: 1;
   pointer-events: none;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 .test-stars {
-  display: none; /* Removed: all 5-star, adds no information */
+  display: none;
 }
 
 .test-quote {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
   font-style: italic;
   font-weight: 400;
   line-height: 1.55;
   color: var(--ink);
   margin-bottom: 1.4rem;
-  position: relative;
+  flex: 1;
 }
 
 .test-author {
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--ash-light);
 }
 
+@media (max-width: 768px) {
+  .test-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
 
 /* ============================================================
    FIRST VISIT — 3 STEPS
    ============================================================ */
-.first-visit { background: var(--parchment); padding: 75px 0; }
+.first-visit { background: var(--parchment); padding: 55px 0; }
 
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   background: rgba(28,25,20,0.08);
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
 .step-card {
@@ -1088,13 +1100,14 @@ section { padding: 110px 0; }
   font-family: 'Cormorant Garamond', serif;
   font-size: 4rem;
   font-weight: 300;
-  color: rgba(28,25,20,0.08);
+  color: var(--sage);
+  opacity: 0.35;
   line-height: 1;
   margin-bottom: 1.5rem;
-  transition: color 0.3s;
+  transition: opacity 0.3s, color 0.3s;
 }
 
-.step-card:hover .step-n { color: rgba(122,140,110,0.2); }
+.step-card:hover .step-n { opacity: 0.6; }
 
 .step-title {
   font-family: 'Cormorant Garamond', serif;
@@ -1113,13 +1126,13 @@ section { padding: 110px 0; }
 /* ============================================================
    INSURANCE
    ============================================================ */
-.insurance { background: var(--ivory); padding: 75px 0; }
+.insurance { background: var(--ivory); padding: 55px 0; }
 
 .ins-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
 .ins-card {
@@ -1169,7 +1182,7 @@ section { padding: 110px 0; }
 /* Section divider — decorative leaf accent between sections */
 .section-divider {
   text-align: center;
-  padding: 1.5rem 0;
+  padding: 0.5rem 0;
   line-height: 1;
 }
 .section-divider svg {
@@ -1215,7 +1228,7 @@ section { padding: 110px 0; }
    ============================================================ */
 .cta-section {
   background: var(--ink);
-  padding: 100px 0;
+  padding: 70px 0;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1289,32 +1302,32 @@ section { padding: 110px 0; }
 /* ============================================================
    LOCATION
    ============================================================ */
-.location { background: var(--parchment); padding: 75px 0; }
+.location { background: var(--parchment); padding: 45px 0 55px; }
 
 .loc-grid {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 0;
-  margin-top: 4rem;
+  margin-top: 2.5rem;
   background: rgba(28,25,20,0.06);
   gap: 2px;
 }
 
 .loc-card {
   background: var(--ink);
-  padding: 3.5rem;
+  padding: 2.5rem;
   color: white;
 }
 
 .loc-card h3 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 400;
   color: white;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.8rem;
 }
 
-.loc-field { margin-bottom: 1.8rem; }
+.loc-field { margin-bottom: 1.2rem; }
 
 .loc-label {
   font-size: 0.66rem;
@@ -1369,55 +1382,20 @@ section { padding: 110px 0; }
 
 .loc-map {
   overflow: hidden;
-  height: 420px;
-  min-height: 420px;
+  height: 340px;
+  min-height: 340px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--parchment);
 }
-.loc-map-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  min-height: 420px;
-  padding: 3rem;
-  transition: background 0.3s;
-  text-decoration: none;
-}
-.loc-map-link:hover { background: rgba(28,25,20,0.03); }
-.loc-map-pin {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  opacity: 0.6;
-}
-.loc-map-addr {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
-  font-weight: 400;
-  color: var(--ink);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-.loc-map-cta {
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--sage);
-  border-bottom: 1px solid var(--sage);
-  padding-bottom: 2px;
-  transition: color 0.3s;
-}
-.loc-map-link:hover .loc-map-cta { color: var(--ink); border-color: var(--ink); }
-
-/* Map directions overlay */
+/* Map directions strip */
 .loc-map-directions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: block;
   text-align: center;
   padding: 0.9rem;
@@ -1479,7 +1457,11 @@ footer h5 {
 
 footer ul { list-style: none; }
 
-footer li { margin-bottom: 0.65rem; }
+footer li {
+  margin-bottom: 0.65rem;
+  font-size: 0.83rem;
+  line-height: 1.65;
+}
 
 footer li a {
   font-size: 0.83rem;
@@ -1960,7 +1942,7 @@ footer li a:hover { color: white; }
     <div class="review-anchor reveal">
       <div class="review-anchor-stars">4.9★</div>
       <span class="review-anchor-label">
-        <a href="https://g.co/kgs/evexiaprimarycare" target="_blank" rel="noopener">47 Reviews on Google</a>
+        <a href="#" onclick="return false;" rel="noopener">47 Reviews on Google</a>
       </span>
     </div>
 
@@ -2106,7 +2088,7 @@ footer li a:hover { color: white; }
           src="https://maps.google.com/maps?q=9700+N+91st+Street+Suite+A-115+Scottsdale+AZ+85258&output=embed"
           width="100%"
           height="100%"
-          style="border:0; min-height:420px; display:block;"
+          style="border:0; min-height:340px; display:block;"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
