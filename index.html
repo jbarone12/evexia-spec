@@ -758,13 +758,13 @@ section { padding: 110px 0; }
 
 .svc-row {
   display: grid;
-  grid-template-columns: 72px 1fr 1.2fr;
+  grid-template-columns: 72px 1fr 1.2fr auto;
   align-items: start;
   gap: 2.5rem;
   padding: 1.8rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   transition: background 0.25s;
-  cursor: default;
+  cursor: pointer;
   position: relative;
 }
 
@@ -816,6 +816,96 @@ section { padding: 110px 0; }
 /* Featured / signature services get a subtle sage accent */
 .svc-row.svc-featured .svc-num { color: var(--sage); }
 .svc-row.svc-featured .svc-name { color: rgba(255,255,255,0.95); }
+
+/* Service expand/collapse */
+.svc-row { cursor: pointer; }
+
+.svc-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 5px;
+  flex-shrink: 0;
+}
+.svc-toggle-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s, background 0.25s, transform 0.4s cubic-bezier(0.76,0,0.24,1);
+  flex-shrink: 0;
+}
+.svc-toggle-icon svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.4s cubic-bezier(0.76,0,0.24,1);
+}
+.svc-row:hover .svc-toggle-icon {
+  border-color: rgba(255,255,255,0.3);
+}
+.svc-row.expanded .svc-toggle-icon {
+  background: var(--sage);
+  border-color: var(--sage);
+}
+.svc-row.expanded .svc-toggle-icon svg {
+  transform: rotate(180deg);
+}
+
+/* Detail panel — spans all 3 grid columns */
+.svc-detail {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.16,1,0.3,1);
+  overflow: hidden;
+}
+.svc-row.expanded .svc-detail {
+  grid-template-rows: 1fr;
+}
+.svc-detail-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+.svc-detail-content {
+  padding: 0 0 1.8rem 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 3rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 1.2rem;
+  margin-top: -1px;
+}
+.svc-detail-item {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+.svc-detail-item::before {
+  content: '–';
+  color: var(--sage);
+  flex-shrink: 0;
+  font-size: 0.75rem;
+}
+.svc-detail-note {
+  grid-column: 1 / -1;
+  margin-top: 0.6rem;
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.28);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .svc-detail-content {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
+}
 
 
 /* ============================================================
@@ -1311,7 +1401,7 @@ footer li a:hover { color: white; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
-  .svc-row { grid-template-columns: 60px 1fr; }
+  .svc-row { grid-template-columns: 60px 1fr auto; }
   .svc-desc { display: none; }
   .about-badge { position: static; margin-top: 1.5rem; right: auto; bottom: auto; }
   .about-photo-col { position: static; }
@@ -1603,42 +1693,126 @@ footer li a:hover { color: white; }
         <div class="svc-num">01</div>
         <div class="svc-name">Wellness Exams</div>
         <div class="svc-desc">Annual physicals, preventive screenings, and health optimization tailored to your life stage and goals.</div>
+        <div class="svc-toggle"><div class="svc-toggle-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="svc-detail"><div class="svc-detail-inner"><div class="svc-detail-content">
+          <div class="svc-detail-item">Comprehensive annual physical exam</div>
+          <div class="svc-detail-item">Age-appropriate cancer screenings</div>
+          <div class="svc-detail-item">Cardiovascular risk assessment</div>
+          <div class="svc-detail-item">Metabolic panel &amp; bloodwork review</div>
+          <div class="svc-detail-item">Immunizations &amp; vaccine updates</div>
+          <div class="svc-detail-item">Vision, hearing &amp; sensory checks</div>
+          <div class="svc-detail-item">Lifestyle &amp; nutrition guidance</div>
+          <div class="svc-detail-item">Personalized health goal planning</div>
+          <div class="svc-detail-note">Includes same-day results review and a written summary of your health plan.</div>
+        </div></div></div>
       </div>
 
       <div class="svc-row reveal" data-delay="2">
         <div class="svc-num">02</div>
         <div class="svc-name">Chronic Disease Management</div>
         <div class="svc-desc">Personalized, long-term plans for diabetes, hypertension, thyroid conditions, and more.</div>
+        <div class="svc-toggle"><div class="svc-toggle-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="svc-detail"><div class="svc-detail-inner"><div class="svc-detail-content">
+          <div class="svc-detail-item">Type 1 &amp; Type 2 diabetes care</div>
+          <div class="svc-detail-item">Hypertension monitoring &amp; management</div>
+          <div class="svc-detail-item">High cholesterol &amp; lipid management</div>
+          <div class="svc-detail-item">Thyroid disorders (hypo/hyperthyroid)</div>
+          <div class="svc-detail-item">Asthma &amp; COPD ongoing support</div>
+          <div class="svc-detail-item">Chronic pain coordination</div>
+          <div class="svc-detail-item">Medication management &amp; adjustments</div>
+          <div class="svc-detail-item">Specialist referral &amp; care coordination</div>
+          <div class="svc-detail-note">Long-term relationship built on understanding your full history — not just your chart.</div>
+        </div></div></div>
       </div>
 
       <div class="svc-row svc-featured reveal" data-delay="3">
         <div class="svc-num">03</div>
         <div class="svc-name">Women's Health</div>
         <div class="svc-desc">Hormone management, contraception counseling, fertility support, and comprehensive menopause care.</div>
+        <div class="svc-toggle"><div class="svc-toggle-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="svc-detail"><div class="svc-detail-inner"><div class="svc-detail-content">
+          <div class="svc-detail-item">Annual well-woman exams &amp; Pap smears</div>
+          <div class="svc-detail-item">Hormone balancing &amp; HRT evaluation</div>
+          <div class="svc-detail-item">Contraception counseling &amp; prescribing</div>
+          <div class="svc-detail-item">PCOS diagnosis &amp; management</div>
+          <div class="svc-detail-item">Perimenopause &amp; menopause care</div>
+          <div class="svc-detail-item">Fertility support &amp; cycle tracking</div>
+          <div class="svc-detail-item">STI screening &amp; sexual health</div>
+          <div class="svc-detail-item">Bone density &amp; osteoporosis prevention</div>
+          <div class="svc-detail-note">A safe, unhurried space for the conversations your previous provider never made time for.</div>
+        </div></div></div>
       </div>
 
       <div class="svc-row reveal" data-delay="4">
         <div class="svc-num">04</div>
         <div class="svc-name">Mental Wellness</div>
         <div class="svc-desc">Integrated screening, compassionate counseling, and expert referrals for mental health support.</div>
+        <div class="svc-toggle"><div class="svc-toggle-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="svc-detail"><div class="svc-detail-inner"><div class="svc-detail-content">
+          <div class="svc-detail-item">Depression &amp; anxiety screening (PHQ-9, GAD-7)</div>
+          <div class="svc-detail-item">ADHD evaluation &amp; management</div>
+          <div class="svc-detail-item">Medication initiation &amp; ongoing management</div>
+          <div class="svc-detail-item">Behavioral health integration</div>
+          <div class="svc-detail-item">Sleep disorder assessment</div>
+          <div class="svc-detail-item">Stress &amp; burnout counseling</div>
+          <div class="svc-detail-item">Therapist &amp; psychiatry referrals</div>
+          <div class="svc-detail-item">Crisis support coordination</div>
+          <div class="svc-detail-note">Mental health is health. Every visit includes a check-in on how you're actually doing.</div>
+        </div></div></div>
       </div>
 
       <div class="svc-row reveal" data-delay="5">
         <div class="svc-num">05</div>
         <div class="svc-name">Weight Management</div>
         <div class="svc-desc">Evidence-based, root-cause programs — not gimmicks. Sustainable health, not short-term fixes.</div>
+        <div class="svc-toggle"><div class="svc-toggle-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="svc-detail"><div class="svc-detail-inner"><div class="svc-detail-content">
+          <div class="svc-detail-item">Comprehensive metabolic assessment</div>
+          <div class="svc-detail-item">Insulin resistance &amp; hormonal workup</div>
+          <div class="svc-detail-item">GLP-1 medication evaluation (Ozempic, Wegovy)</div>
+          <div class="svc-detail-item">Personalized nutrition planning</div>
+          <div class="svc-detail-item">Body composition analysis</div>
+          <div class="svc-detail-item">Behavioral &amp; lifestyle coaching</div>
+          <div class="svc-detail-item">Ongoing progress monitoring</div>
+          <div class="svc-detail-item">Emotional eating support &amp; referrals</div>
+          <div class="svc-detail-note">We address root causes — metabolic, hormonal, behavioral — not just calorie counts.</div>
+        </div></div></div>
       </div>
 
       <div class="svc-row reveal" data-delay="6">
         <div class="svc-num">06</div>
         <div class="svc-name">Telehealth &amp; Lab Coordination</div>
         <div class="svc-desc">Virtual visits for routine follow-ups, plus complete lab work with clear explanations of every result.</div>
+        <div class="svc-toggle"><div class="svc-toggle-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="svc-detail"><div class="svc-detail-inner"><div class="svc-detail-content">
+          <div class="svc-detail-item">Secure HIPAA-compliant video visits</div>
+          <div class="svc-detail-item">Routine follow-ups &amp; medication refills</div>
+          <div class="svc-detail-item">Lab orders via LabCorp &amp; Quest Diagnostics</div>
+          <div class="svc-detail-item">Plain-language results interpretation</div>
+          <div class="svc-detail-item">Specialist referral paperwork</div>
+          <div class="svc-detail-item">Urgent symptom triage</div>
+          <div class="svc-detail-item">Prescription management</div>
+          <div class="svc-detail-item">After-visit care coordination</div>
+          <div class="svc-detail-note">No lab result goes unexplained. We walk you through every number in plain English.</div>
+        </div></div></div>
       </div>
 
       <div class="svc-row svc-featured reveal" data-delay="7">
         <div class="svc-num">07</div>
         <div class="svc-name">Preventive Medicine</div>
         <div class="svc-desc">Proactive strategies, lifestyle guidance, and early intervention before disease takes hold.</div>
+        <div class="svc-toggle"><div class="svc-toggle-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="svc-detail"><div class="svc-detail-inner"><div class="svc-detail-content">
+          <div class="svc-detail-item">Cancer risk stratification &amp; screening plans</div>
+          <div class="svc-detail-item">Genetic risk counseling &amp; testing referrals</div>
+          <div class="svc-detail-item">Cardiovascular disease prevention</div>
+          <div class="svc-detail-item">Diabetes prevention program</div>
+          <div class="svc-detail-item">Smoking cessation support</div>
+          <div class="svc-detail-item">Alcohol &amp; substance use counseling</div>
+          <div class="svc-detail-item">Immunizations &amp; travel health</div>
+          <div class="svc-detail-item">Longevity &amp; healthspan optimization</div>
+          <div class="svc-detail-note">Most chronic disease is preventable. At Evexia, that opportunity is never missed.</div>
+        </div></div></div>
       </div>
 
     </div>
@@ -1948,6 +2122,17 @@ setTimeout(() => {
     el.classList.add('visible');
   });
 }, 3000);
+
+// ── Service row expand/collapse ──────────────────────
+document.querySelectorAll('.svc-row').forEach(row => {
+  row.addEventListener('click', () => {
+    const isExpanded = row.classList.contains('expanded');
+    // Close all other open rows
+    document.querySelectorAll('.svc-row.expanded').forEach(r => r.classList.remove('expanded'));
+    // Toggle clicked row (re-open if it wasn't the one already open)
+    if (!isExpanded) row.classList.add('expanded');
+  });
+});
 </script>
 
 </body>
