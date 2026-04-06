@@ -7,7 +7,8 @@
 <meta name="description" content="Evexia Primary Care — primary care rooted in the ancient ideal of εὐεξία: the body in its naturally flourishing state. Nina Pliakos, FNP-C, Scottsdale AZ.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1620818789320-78ff6e9eaa54?w=1200&q=90&fit=crop">
 <style>
 
 /* ============================================================
@@ -31,6 +32,28 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
+
+/* Keyboard focus styles */
+*:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 2px;
+}
+
+/* Skip-to-content link (visible on Tab) */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 999;
+  background: var(--ink);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 0 0 4px 4px;
+  transition: top 0.2s;
+}
+.skip-nav:focus { top: 0; }
 
 body {
   font-family: 'Inter', -apple-system, sans-serif;
@@ -213,7 +236,7 @@ header.scrolled .menu-toggle span { background: var(--ink); }
   font-size: clamp(14rem, 22vw, 28rem);
   font-weight: 300;
   font-style: italic;
-  color: rgba(255,255,255,0.025);
+  color: rgba(255,255,255,0.05);
   line-height: 1;
   pointer-events: none;
   user-select: none;
@@ -307,7 +330,7 @@ header.scrolled .menu-toggle span { background: var(--ink); }
 .hero-scroll {
   font-size: 0.7rem;
   letter-spacing: 1px;
-  color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.45);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -315,7 +338,7 @@ header.scrolled .menu-toggle span { background: var(--ink); }
 .hero-scroll-line {
   width: 1px;
   height: 48px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(255,255,255,0));
+  background: linear-gradient(to bottom, rgba(255,255,255,0.45), rgba(255,255,255,0));
   animation: scrollPulse 2.5s ease-in-out infinite;
 }
 
@@ -722,6 +745,10 @@ section { padding: 110px 0; }
 }
 .svc-row:hover .svc-desc { color: rgba(255,255,255,0.58); }
 
+/* Featured / signature services get a subtle sage accent */
+.svc-row.svc-featured .svc-num { color: var(--sage); }
+.svc-row.svc-featured .svc-name { color: rgba(255,255,255,0.95); }
+
 
 /* ============================================================
    TESTIMONIALS — LARGE CENTERED PULL-QUOTES
@@ -757,11 +784,7 @@ section { padding: 110px 0; }
 }
 
 .test-stars {
-  font-size: 0.78rem;
-  color: var(--gold);
-  letter-spacing: 5px;
-  margin-bottom: 1.8rem;
-  position: relative;
+  display: none; /* Removed: all 5-star, adds no information */
 }
 
 .test-quote {
@@ -1273,6 +1296,8 @@ footer li a:hover { color: white; }
 </head>
 <body>
 
+<a href="#philosophy" class="skip-nav">Skip to content</a>
+
 <!-- ============================================================
      HEADER
      ============================================================ -->
@@ -1472,7 +1497,7 @@ footer li a:hover { color: white; }
 
     <div class="svc-list">
 
-      <div class="svc-row reveal" data-delay="1">
+      <div class="svc-row svc-featured reveal" data-delay="1">
         <div class="svc-num">01</div>
         <div class="svc-name">Wellness Exams</div>
         <div class="svc-desc">Annual physicals, preventive screenings, and health optimization tailored to your life stage and goals.</div>
@@ -1484,7 +1509,7 @@ footer li a:hover { color: white; }
         <div class="svc-desc">Personalized, long-term plans for diabetes, hypertension, thyroid conditions, and more.</div>
       </div>
 
-      <div class="svc-row reveal" data-delay="3">
+      <div class="svc-row svc-featured reveal" data-delay="3">
         <div class="svc-num">03</div>
         <div class="svc-name">Women's Health</div>
         <div class="svc-desc">Hormone management, contraception counseling, fertility support, and comprehensive menopause care.</div>
@@ -1508,7 +1533,7 @@ footer li a:hover { color: white; }
         <div class="svc-desc">Virtual visits for routine follow-ups, plus complete lab work with clear explanations of every result.</div>
       </div>
 
-      <div class="svc-row reveal" data-delay="7">
+      <div class="svc-row svc-featured reveal" data-delay="7">
         <div class="svc-num">07</div>
         <div class="svc-name">Preventive Medicine</div>
         <div class="svc-desc">Proactive strategies, lifestyle guidance, and early intervention before disease takes hold.</div>
@@ -1530,20 +1555,17 @@ footer li a:hover { color: white; }
     <div class="test-inner">
 
       <div class="test-item reveal">
-        <div class="test-stars">★ ★ ★ ★ ★</div>
-        <p class="test-quote">"Nina actually listens. She spent 45 minutes with me on my first visit asking questions I've never been asked by a doctor. I finally feel like someone understands my health."</p>
+        <p class="test-quote">"She spent 45 minutes with me on my first visit. I finally feel like someone understands my health."</p>
         <div class="test-author">Sarah M. &nbsp;·&nbsp; Patient since 2024</div>
       </div>
 
       <div class="test-item reveal" data-delay="1">
-        <div class="test-stars">★ ★ ★ ★ ★</div>
-        <p class="test-quote">"After years of rushed appointments, I found a provider who treats me like a person, not a patient number. Evexia is the kind of healthcare everyone deserves but rarely finds."</p>
+        <p class="test-quote">"A provider who treats me like a person, not a patient number. The kind of healthcare everyone deserves."</p>
         <div class="test-author">James T. &nbsp;·&nbsp; Patient since 2024</div>
       </div>
 
       <div class="test-item reveal" data-delay="2">
-        <div class="test-stars">★ ★ ★ ★ ★</div>
-        <p class="test-quote">"Instead of just prescribing, Nina helped me understand the root causes. Her preventive, thoughtful approach is something I wish I'd found years ago."</p>
+        <p class="test-quote">"Instead of just prescribing, Nina helped me understand the root causes. I wish I'd found her years ago."</p>
         <div class="test-author">Michelle R. &nbsp;·&nbsp; Patient since 2025</div>
       </div>
 
@@ -1649,7 +1671,7 @@ footer li a:hover { color: white; }
           <div class="loc-label">Hours</div>
           <div class="loc-value">Monday – Friday: 8am – 5pm<br>Saturday: By Appointment</div>
         </div>
-        <button class="loc-book" onclick="window.location.href='tel:+14805550147'">Book Your Appointment</button>
+        <button class="loc-book" onclick="if(/Mobi|Android/i.test(navigator.userAgent)){window.location.href='tel:+14805550147'}else{window.location.href='mailto:hello@evexiaprimarycare.com?subject=Appointment%20Request'}">Book Your Appointment</button>
       </div>
 
       <div class="loc-map reveal" data-delay="1">
@@ -1697,7 +1719,7 @@ footer li a:hover { color: white; }
     </div>
     <div class="footer-bar">
       <span>Spec design by <a href="https://bar1digital.com">Bar1 Digital</a> &nbsp;·&nbsp; Web design for independent healthcare providers</span>
-      <span>© 2025 Evexia Primary Care</span>
+      <span>© 2026 Evexia Primary Care</span>
     </div>
   </div>
 </footer>
