@@ -9,6 +9,62 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1620818789320-78ff6e9eaa54?w=1200&q=90&fit=crop">
+<meta property="og:title" content="Evexia Primary Care | Nina Pliakos, FNP-C · Scottsdale, AZ">
+<meta property="og:description" content="Unhurried appointments, real conversations, and a provider who genuinely knows your name. Primary care in Scottsdale, AZ.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1620818789320-78ff6e9eaa54?w=1200&q=80&fit=crop">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://evexiaprimarycare.com">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "Evexia Primary Care",
+  "description": "Personalized primary care in Scottsdale, AZ. Unhurried appointments, real conversations, and a provider who genuinely knows your name.",
+  "url": "https://evexiaprimarycare.com",
+  "telephone": "(480) 555-0147",
+  "email": "hello@evexiaprimarycare.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9700 N 91st Street, Suite A-115",
+    "addressLocality": "Scottsdale",
+    "addressRegion": "AZ",
+    "postalCode": "85258",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 33.5631,
+    "longitude": -111.8761
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "13:00"
+    }
+  ],
+  "priceRange": "$125-$200",
+  "medicalSpecialty": "PrimaryCare",
+  "founder": {
+    "@type": "Person",
+    "name": "Nina Pliakos",
+    "jobTitle": "Board-Certified Family Nurse Practitioner",
+    "alumniOf": [
+      {"@type": "CollegeOrUniversity", "name": "Grand Canyon University"},
+      {"@type": "CollegeOrUniversity", "name": "Arizona State University"}
+    ]
+  },
+  "sameAs": []
+}
+</script>
 <style>
 
 /* ============================================================
@@ -390,18 +446,26 @@ header.scrolled .menu-toggle span { background: var(--ink); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Scroll reveals */
+/* Scroll reveals — progressive enhancement: content visible by default,
+   only hidden when JS is confirmed active (html.has-js) */
 .reveal {
-  opacity: 0;
-  transform: translateY(28px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1),
               transform 0.9s cubic-bezier(0.16,1,0.3,1);
+}
+html.has-js .reveal:not(.visible) {
+  opacity: 0;
+  transform: translateY(28px);
 }
 .reveal.visible { opacity: 1; transform: none; }
 
 .reveal-clip {
-  clip-path: inset(100% 0 0 0);
+  clip-path: inset(0 0 0 0);
   transition: clip-path 1.2s cubic-bezier(0.76,0,0.24,1);
+}
+html.has-js .reveal-clip:not(.visible) {
+  clip-path: inset(100% 0 0 0);
 }
 .reveal-clip.visible { clip-path: inset(0 0 0 0); }
 
@@ -485,6 +549,10 @@ section { padding: 110px 0; }
   line-height: 1.1;
   margin-bottom: 1.5rem;
 }
+
+/* Responsive heading breaks: block on desktop, natural flow on narrow viewports */
+.section-h2 .hbr { display: block; }
+@media (max-width: 600px) { .section-h2 .hbr { display: inline; } }
 
 .section-h2 em {
   font-style: italic;
@@ -901,6 +969,38 @@ section { padding: 110px 0; }
 }
 .ins-card p:last-child { margin-bottom: 0; }
 
+.ins-logos {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(28,25,20,0.06);
+}
+.ins-logo-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ash);
+  opacity: 0.5;
+  padding: 6px 12px;
+  border: 1px solid rgba(28,25,20,0.1);
+  border-radius: 3px;
+}
+
+/* Section divider — decorative leaf accent between sections */
+.section-divider {
+  text-align: center;
+  padding: 1.5rem 0;
+  line-height: 1;
+}
+.section-divider svg {
+  width: 40px;
+  height: 40px;
+  opacity: 0.2;
+}
 
 /* Inline booking CTA (used after First Visit section) */
 .steps-cta {
@@ -973,6 +1073,8 @@ section { padding: 110px 0; }
   position: relative;
 }
 .cta-section h2 em { font-style: italic; font-weight: 300; opacity: 0.7; }
+.cta-section h2 .hbr { display: block; }
+@media (max-width: 600px) { .cta-section h2 .hbr { display: inline; } }
 
 .cta-section p {
   font-size: 0.88rem;
@@ -1068,14 +1170,14 @@ section { padding: 110px 0; }
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: white;
-  border: 1px solid rgba(255,255,255,0.3);
+  background: var(--sage);
+  border: 1px solid var(--sage);
   padding: 12px 28px;
   cursor: pointer;
-  background: none;
   font-family: 'Inter', sans-serif;
   transition: all 0.3s;
 }
-.loc-book:hover { background: white; color: var(--ink); border-color: white; }
+.loc-book:hover { background: #6B7D5F; border-color: #6B7D5F; color: white; }
 
 .loc-map {
   overflow: hidden;
@@ -1404,7 +1506,7 @@ footer li a:hover { color: white; }
 
       <div class="phil-text">
         <span class="section-label reveal">Our Approach</span>
-        <h2 class="section-h2 reveal" data-delay="1">A different kind<br><em>of primary care</em></h2>
+        <h2 class="section-h2 reveal" data-delay="1">A different kind<span class="hbr"> </span><em>of primary care</em></h2>
         <p class="body-text reveal" data-delay="2">We believe your health is not a problem to be solved. It's a relationship to be built. Evexia exists for patients who want more — more time, more clarity, more of a provider who truly knows them.</p>
         <p class="body-text reveal" data-delay="3">Every visit is unhurried. Every concern is taken seriously. We lead with prevention, speak plainly, and treat you as an intelligent adult who deserves to understand their own health.</p>
         <blockquote class="phil-quote reveal" data-delay="4">We measure success not by the number of patients we see, but by the depth of care we provide to each one.</blockquote>
@@ -1439,7 +1541,7 @@ footer li a:hover { color: white; }
 
       <div class="about-content">
         <span class="section-label reveal">Meet Nina</span>
-        <h2 class="section-h2 reveal" data-delay="1">The provider<br><em>you've been looking for</em></h2>
+        <h2 class="section-h2 reveal" data-delay="1">The provider<span class="hbr"> </span><em>you've been looking for</em></h2>
 
         <p class="body-text reveal" data-delay="2">Nina Pliakos is a Board-Certified Family Nurse Practitioner with over a decade of clinical experience. She spent years in high-volume healthcare settings watching something erode: the relationship between patient and provider. She started Evexia to restore it.</p>
 
@@ -1493,7 +1595,7 @@ footer li a:hover { color: white; }
 <section class="services" id="services">
   <div class="container">
     <span class="section-label reveal">What We Offer</span>
-    <h2 class="section-h2 reveal" data-delay="1">Comprehensive care,<br><em>one patient at a time</em></h2>
+    <h2 class="section-h2 reveal" data-delay="1">Comprehensive care,<span class="hbr"> </span><em>one patient at a time</em></h2>
 
     <div class="svc-list">
 
@@ -1543,6 +1645,11 @@ footer li a:hover { color: white; }
   </div>
 </section>
 
+<div class="section-divider">
+  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 4c-2 8-8 14-16 16 8 2 14 8 16 16 2-8 8-14 16-16-8-2-14-8-16-16z" fill="#7A8C6E"/>
+  </svg>
+</div>
 
 <!-- ============================================================
      TESTIMONIALS — PULL-QUOTE STYLE
@@ -1580,7 +1687,7 @@ footer li a:hover { color: white; }
 <section class="first-visit" id="first-visit">
   <div class="container">
     <span class="section-label reveal">Getting Started</span>
-    <h2 class="section-h2 reveal" data-delay="1">Your first visit,<br><em>in three simple steps</em></h2>
+    <h2 class="section-h2 reveal" data-delay="1">Your first visit,<span class="hbr"> </span><em>in three simple steps</em></h2>
 
     <div class="steps-grid">
       <div class="step-card reveal">
@@ -1606,6 +1713,11 @@ footer li a:hover { color: white; }
   </div>
 </section>
 
+<div class="section-divider">
+  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 4c-2 8-8 14-16 16 8 2 14 8 16 16 2-8 8-14 16-16-8-2-14-8-16-16z" fill="#7A8C6E"/>
+  </svg>
+</div>
 
 <!-- ============================================================
      INSURANCE
@@ -1613,19 +1725,28 @@ footer li a:hover { color: white; }
 <section class="insurance" id="insurance">
   <div class="container">
     <span class="section-label reveal">Pricing &amp; Coverage</span>
-    <h2 class="section-h2 reveal" data-delay="1">Transparent,<br><em>accessible care</em></h2>
+    <h2 class="section-h2 reveal" data-delay="1">Transparent,<span class="hbr"> </span><em>accessible care</em></h2>
 
     <div class="ins-grid">
       <div class="ins-card reveal">
         <h3>Insurance Accepted</h3>
         <p>We accept most major plans including Arizona Blue Cross, Aetna, Cigna, United Healthcare, and others.</p>
         <p>We verify your coverage before your visit so there are no billing surprises.</p>
+        <div class="ins-logos reveal" data-delay="1">
+          <span class="ins-logo-item">Blue Cross</span>
+          <span class="ins-logo-item">Aetna</span>
+          <span class="ins-logo-item">Cigna</span>
+          <span class="ins-logo-item">UnitedHealthcare</span>
+        </div>
       </div>
       <div class="ins-card reveal" data-delay="1">
         <h3>Self-Pay Options</h3>
         <p>No insurance? No problem. First visit: <strong>$200</strong>. Follow-ups: <strong>$125</strong>. Quality care should be accessible to everyone.</p>
         <p>Flexible scheduling and payment plans available on request.</p>
       </div>
+    </div>
+    <div class="steps-cta reveal" data-delay="2" style="text-align:center;margin-top:2.5rem;">
+      <a href="#location" class="btn-book"><span>Schedule Your Visit</span></a>
     </div>
   </div>
 </section>
@@ -1636,7 +1757,7 @@ footer li a:hover { color: white; }
      ============================================================ -->
 <div class="cta-section">
   <div class="container" style="position:relative;z-index:2">
-    <h2 class="reveal">Ready to experience healthcare<br><em>the way it should be?</em></h2>
+    <h2 class="reveal">Ready to experience healthcare<span class="hbr"> </span><em>the way it should be?</em></h2>
     <p class="reveal" data-delay="1">Schedule your first visit and discover what unhurried, personalized care truly feels like.</p>
     <a href="#location" class="btn-cta reveal" data-delay="2"><span>Book Your First Visit</span></a>
   </div>
@@ -1649,7 +1770,7 @@ footer li a:hover { color: white; }
 <section class="location" id="location">
   <div class="container">
     <span class="section-label reveal">Find Us</span>
-    <h2 class="section-h2 reveal" data-delay="1">Conveniently located<br><em>in Scottsdale</em></h2>
+    <h2 class="section-h2 reveal" data-delay="1">Conveniently located<span class="hbr"> </span><em>in Scottsdale</em></h2>
 
     <div class="loc-grid">
 
@@ -1729,6 +1850,9 @@ footer li a:hover { color: white; }
      JAVASCRIPT
      ============================================================ -->
 <script>
+// ── Progressive enhancement: enable scroll-reveal hiding ────
+document.documentElement.classList.add('has-js');
+
 // ── Header scroll state ──────────────────────────────
 const header = document.getElementById('mainHeader');
 window.addEventListener('scroll', () => {
