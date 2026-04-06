@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='Georgia,serif' fill='%237A8C6E'>ε</text></svg>">
 <title>Evexia Primary Care | Nina Pliakos, FNP-C · Scottsdale, AZ</title>
 <meta name="description" content="Evexia Primary Care — unhurried, personalized primary care in Scottsdale, AZ. Nina Pliakos, FNP-C. Same-week appointments. Insurance accepted. Self-pay from $200.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1228,7 +1229,7 @@ section { padding: 110px 0; }
   font-size: clamp(8rem, 18vw, 22rem);
   font-weight: 300;
   font-style: italic;
-  color: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.07);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -1368,6 +1369,7 @@ section { padding: 110px 0; }
 
 .loc-map {
   overflow: hidden;
+  height: 420px;
   min-height: 420px;
   position: relative;
   display: flex;
@@ -1496,7 +1498,7 @@ footer li a:hover { color: white; }
 }
 
 .footer-bar a {
-  color: var(--blush);
+  color: var(--gold);
   transition: opacity 0.3s;
 }
 .footer-bar a:hover { opacity: 0.8; }
@@ -1510,6 +1512,12 @@ footer li a:hover { color: white; }
   .svc-desc { display: none; }
   .about-badge { position: static; margin-top: 1.5rem; right: auto; bottom: auto; }
   .about-photo-col { position: static; }
+  .nav-links { gap: 1.4rem; }
+}
+
+@media (max-width: 900px) {
+  .nav-links li:nth-child(4),
+  .nav-links li:nth-child(5) { display: none; }
 }
 
 /* About grid — guard intermediate viewport (doesn't stack until 768px) */
@@ -1581,6 +1589,7 @@ footer li a:hover { color: white; }
 
   .svc-row { grid-template-columns: 1fr; }
   .svc-num { display: none; }
+  .svc-detail-content { grid-template-columns: 1fr; padding: 1rem 0; }
 
   section { padding: 70px 0; }
   .test-inner { margin-top: 2rem; }
@@ -1705,7 +1714,7 @@ footer li a:hover { color: white; }
           class="phil-img reveal-clip"
           src="https://images.unsplash.com/photo-1585130557898-0d191552ee66?w=700&q=85&fit=crop"
           alt="Eucalyptus branches in natural light — Evexia wellness"
-          loading="lazy"
+          loading="eager"
         >
       </div>
 
@@ -2004,7 +2013,7 @@ footer li a:hover { color: white; }
     </div>
 
     <div class="steps-cta reveal" data-delay="3">
-      <a href="#location" class="btn-book"><span>Schedule Your Visit</span></a>
+      <a href="#location" class="btn-book"><span>Book Your Visit</span></a>
     </div>
   </div>
 </section>
@@ -2042,7 +2051,7 @@ footer li a:hover { color: white; }
       </div>
     </div>
     <div class="steps-cta reveal" data-delay="2" style="text-align:center;margin-top:2.5rem;">
-      <a href="#location" class="btn-book"><span>Schedule Your Visit</span></a>
+      <a href="#location" class="btn-book"><span>Book Your Visit</span></a>
     </div>
   </div>
 </section>
@@ -2055,7 +2064,7 @@ footer li a:hover { color: white; }
   <div class="container" style="position:relative;z-index:2">
     <h2 class="reveal">Ready to experience healthcare<span class="hbr"> </span><em>the way it should be?</em></h2>
     <p class="reveal" data-delay="1">Schedule your first visit and discover what unhurried, personalized care truly feels like.</p>
-    <a href="#location" class="btn-cta reveal" data-delay="2"><span>Book Your First Visit</span></a>
+    <a href="#location" class="btn-cta reveal" data-delay="2"><span>Book Your Visit</span></a>
   </div>
 </div>
 
@@ -2088,7 +2097,7 @@ footer li a:hover { color: white; }
           <div class="loc-label">Hours</div>
           <div class="loc-value">Monday – Friday: 8am – 5pm<br>Saturday: By Appointment</div>
         </div>
-        <button class="loc-book" onclick="window.location.href='mailto:hello@evexiaprimarycare.com?subject=New%20Patient%20Appointment%20Request&body=Hi%20Nina%2C%0A%0AI%27d%20like%20to%20schedule%20a%20new%20patient%20appointment.%0A%0AName%3A%20%0APhone%3A%20%0AInsurance%3A%20%0APreferred%20days%20%2F%20times%3A%20'">Request an Appointment</button>
+        <button class="loc-book" onclick="window.location.href='mailto:hello@evexiaprimarycare.com?subject=New%20Patient%20Appointment%20Request&body=Hi%20Evexia%20team%2C%0A%0AI%27d%20like%20to%20schedule%20a%20new%20patient%20appointment.%0A%0AName%3A%20%0APhone%3A%20%0AInsurance%3A%20%0APreferred%20days%20%2F%20times%3A%20'">Request an Appointment</button>
         <a href="tel:+14805550147" class="loc-phone-link">(480) 555-0147 &nbsp;·&nbsp; Call to book</a>
       </div>
 
@@ -2217,7 +2226,7 @@ const counterObserver = new IntersectionObserver(entries => {
       }, 45);
     }
   });
-}, { threshold: 0.6 });
+}, { threshold: 0.25 });
 
 document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
 
