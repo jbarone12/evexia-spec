@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Evexia Primary Care | Nina Pliakos, FNP-C · Scottsdale, AZ</title>
-<meta name="description" content="Evexia Primary Care — primary care rooted in the ancient ideal of εὐεξία: the body in its naturally flourishing state. Nina Pliakos, FNP-C, Scottsdale AZ.">
+<meta name="description" content="Evexia Primary Care — unhurried, personalized primary care in Scottsdale, AZ. Nina Pliakos, FNP-C. Same-week appointments. Insurance accepted. Self-pay from $200.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -171,10 +171,34 @@ nav {
 }
 header.scrolled .logo { color: var(--ink); }
 
+/* Skip nav — accessibility */
+.skip-nav {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -1;
+}
+.skip-nav:focus {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  background: var(--ink);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  z-index: 9999;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2rem;
   list-style: none;
 }
 
@@ -668,12 +692,15 @@ section { padding: 110px 0; }
 .about-badge {
   position: absolute;
   bottom: -1px;
-  left: -2rem;
+  left: 0;
   background: var(--white);
   padding: 1.4rem 1.8rem;
   box-shadow: var(--shadow-md);
   min-width: 230px;
   z-index: 2;
+}
+@media (min-width: 1100px) {
+  .about-badge { left: -2rem; }
 }
 
 .badge-tag {
@@ -947,9 +974,38 @@ section { padding: 110px 0; }
   margin: 2.5rem auto 0;
 }
 
+/* Google review anchor badge */
+.review-anchor {
+  text-align: center;
+  margin: 0 auto 2rem;
+}
+.review-anchor-stars {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1;
+}
+.review-anchor-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-top: 0.4rem;
+}
+.review-anchor-label a {
+  color: var(--sage);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(122,140,110,0.35);
+  transition: border-color 0.3s;
+}
+.review-anchor-label a:hover { border-color: var(--sage); }
+
 .test-item {
   text-align: center;
-  padding: 2.5rem 0;
+  padding: 1.8rem 0;
   border-bottom: 1px solid rgba(28,25,20,0.08);
   position: relative;
 }
@@ -1157,7 +1213,7 @@ section { padding: 110px 0; }
    CTA SECTION
    ============================================================ */
 .cta-section {
-  background: var(--sage);
+  background: var(--ink);
   padding: 100px 0;
   text-align: center;
   position: relative;
@@ -1208,9 +1264,9 @@ section { padding: 110px 0; }
   font-weight: 500;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--ink);
-  background: white;
-  border: 1px solid white;
+  color: white;
+  background: var(--sage);
+  border: 1px solid var(--sage);
   padding: 16px 44px;
   transition: all 0.3s;
   position: relative;
@@ -1220,11 +1276,11 @@ section { padding: 110px 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--sage);
+  background: #5e6e54;
   transform: translateX(-101%);
   transition: transform 0.35s cubic-bezier(0.76,0,0.24,1);
 }
-.btn-cta:hover { color: white; border-color: var(--sage); }
+.btn-cta:hover { color: white; border-color: #5e6e54; }
 .btn-cta:hover::before { transform: translateX(0); }
 .btn-cta span { position: relative; z-index: 1; }
 
@@ -1298,6 +1354,18 @@ section { padding: 110px 0; }
 }
 .loc-book:hover { background: #6B7D5F; border-color: #6B7D5F; color: white; }
 
+.loc-phone-link {
+  display: block;
+  text-align: center;
+  margin-top: 0.9rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.loc-phone-link:hover { color: rgba(255,255,255,0.8); }
+
 .loc-map {
   overflow: hidden;
   min-height: 420px;
@@ -1346,14 +1414,22 @@ section { padding: 110px 0; }
 }
 .loc-map-link:hover .loc-map-cta { color: var(--ink); border-color: var(--ink); }
 
-/* Legacy iframe support (hidden by default now) */
-.loc-map iframe {
-  width: 100%;
-  height: 100%;
-  min-height: 420px;
-  border: 0;
+/* Map directions overlay */
+.loc-map-directions {
   display: block;
+  text-align: center;
+  padding: 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--sage);
+  background: white;
+  border-top: 1px solid rgba(28,25,20,0.07);
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s;
 }
+.loc-map-directions:hover { background: var(--parchment); color: var(--ink); }
 
 
 /* ============================================================
@@ -1434,6 +1510,13 @@ footer li a:hover { color: white; }
   .svc-desc { display: none; }
   .about-badge { position: static; margin-top: 1.5rem; right: auto; bottom: auto; }
   .about-photo-col { position: static; }
+}
+
+/* About grid — guard intermediate viewport (doesn't stack until 768px) */
+@media (max-width: 980px) and (min-width: 769px) {
+  .about-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .about-photo-frame img { height: 460px; }
+  .about-badge { left: 0; }
 }
 
 @media (max-width: 768px) {
@@ -1522,6 +1605,7 @@ footer li a:hover { color: white; }
 <!-- ============================================================
      HEADER
      ============================================================ -->
+<a href="#philosophy" class="skip-nav">Skip to main content</a>
 <header id="mainHeader">
   <nav>
     <a href="#" class="logo">Evexia</a>
@@ -1532,7 +1616,9 @@ footer li a:hover { color: white; }
       <li><a href="#philosophy">Approach</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#testimonials">Stories</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#insurance">Pricing</a></li>
+      <li><a href="#location">Find Us</a></li>
     </ul>
     <a href="#location" class="nav-cta">Book a Visit</a>
   </nav>
@@ -1862,6 +1948,13 @@ footer li a:hover { color: white; }
     <span class="section-label reveal" style="text-align:center;display:block">Patient Stories</span>
     <h2 class="section-h2 reveal" data-delay="1" style="text-align:center">What our patients say</h2>
 
+    <div class="review-anchor reveal">
+      <div class="review-anchor-stars">4.9★</div>
+      <span class="review-anchor-label">
+        <a href="https://g.co/kgs/evexiaprimarycare" target="_blank" rel="noopener">47 Reviews on Google</a>
+      </span>
+    </div>
+
     <div class="test-inner">
 
       <div class="test-item reveal">
@@ -1995,15 +2088,27 @@ footer li a:hover { color: white; }
           <div class="loc-label">Hours</div>
           <div class="loc-value">Monday – Friday: 8am – 5pm<br>Saturday: By Appointment</div>
         </div>
-        <button class="loc-book" onclick="if(/Mobi|Android/i.test(navigator.userAgent)){window.location.href='tel:+14805550147'}else{window.location.href='mailto:hello@evexiaprimarycare.com?subject=Appointment%20Request'}">Book Your Appointment</button>
+        <button class="loc-book" onclick="window.location.href='mailto:hello@evexiaprimarycare.com?subject=New%20Patient%20Appointment%20Request&body=Hi%20Nina%2C%0A%0AI%27d%20like%20to%20schedule%20a%20new%20patient%20appointment.%0A%0AName%3A%20%0APhone%3A%20%0AInsurance%3A%20%0APreferred%20days%20%2F%20times%3A%20'">Request an Appointment</button>
+        <a href="tel:+14805550147" class="loc-phone-link">(480) 555-0147 &nbsp;·&nbsp; Call to book</a>
       </div>
 
       <div class="loc-map reveal" data-delay="1">
-        <a href="https://www.google.com/maps/place/9700+N+91st+St,+Scottsdale,+AZ+85258" target="_blank" rel="noopener" class="loc-map-link">
-          <div class="loc-map-pin">&#x1F4CD;</div>
-          <div class="loc-map-addr">9700 N 91st Street<br>Suite A-115<br>Scottsdale, AZ 85258</div>
-          <span class="loc-map-cta">Get Directions &rarr;</span>
-        </a>
+        <iframe
+          src="https://maps.google.com/maps?q=9700+N+91st+Street+Suite+A-115+Scottsdale+AZ+85258&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0; min-height:420px; display:block;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Evexia Primary Care location map"
+        ></iframe>
+        <a
+          href="https://www.google.com/maps/place/9700+N+91st+St,+Scottsdale,+AZ+85258"
+          target="_blank"
+          rel="noopener"
+          class="loc-map-directions"
+        >Get Directions &rarr;</a>
       </div>
 
     </div>
