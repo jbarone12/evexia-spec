@@ -3,11 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='Georgia,serif' fill='%237A8C6E'>ε</text></svg>">
 <title>Evexia Primary Care | Nina Pliakos, FNP-C · Scottsdale, AZ</title>
-<meta name="description" content="Evexia Primary Care — primary care rooted in the ancient ideal of εὐεξία: the body in its naturally flourishing state. Nina Pliakos, FNP-C, Scottsdale AZ.">
+<meta name="description" content="Evexia Primary Care — unhurried, personalized primary care in Scottsdale, AZ. Nina Pliakos, FNP-C. Same-week appointments. Insurance accepted. Self-pay from $200.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1620818789320-78ff6e9eaa54?w=1200&q=90&fit=crop">
+<meta property="og:title" content="Evexia Primary Care | Nina Pliakos, FNP-C · Scottsdale, AZ">
+<meta property="og:description" content="Unhurried appointments, real conversations, and a provider who genuinely knows your name. Primary care in Scottsdale, AZ.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1620818789320-78ff6e9eaa54?w=1200&q=80&fit=crop">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://evexiaprimarycare.com">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "Evexia Primary Care",
+  "description": "Personalized primary care in Scottsdale, AZ. Unhurried appointments, real conversations, and a provider who genuinely knows your name.",
+  "url": "https://evexiaprimarycare.com",
+  "telephone": "(480) 555-0147",
+  "email": "hello@evexiaprimarycare.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9700 N 91st Street, Suite A-115",
+    "addressLocality": "Scottsdale",
+    "addressRegion": "AZ",
+    "postalCode": "85258",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 33.5631,
+    "longitude": -111.8761
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "13:00"
+    }
+  ],
+  "priceRange": "$125-$200",
+  "medicalSpecialty": "PrimaryCare",
+  "founder": {
+    "@type": "Person",
+    "name": "Nina Pliakos",
+    "jobTitle": "Board-Certified Family Nurse Practitioner",
+    "alumniOf": [
+      {"@type": "CollegeOrUniversity", "name": "Grand Canyon University"},
+      {"@type": "CollegeOrUniversity", "name": "Arizona State University"}
+    ]
+  },
+  "sameAs": []
+}
+</script>
 <style>
 
 /* ============================================================
@@ -18,8 +76,8 @@
   --ink-soft:  #2C2820;
   --ivory:     #F8F5F0;
   --parchment: #EDEAE3;
-  --ash:       #6E6B63;
-  --ash-light: #A09D96;
+  --ash:       #56534C;
+  --ash-light: #8A877F;
   --sage:      #7A8C6E;
   --sage-pale: #E2E8DC;
   --gold:      #B89A66;
@@ -31,6 +89,28 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
+
+/* Keyboard focus styles */
+*:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 2px;
+}
+
+/* Skip-to-content link (visible on Tab) */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 999;
+  background: var(--ink);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 0 0 4px 4px;
+  transition: top 0.2s;
+}
+.skip-nav:focus { top: 0; }
 
 body {
   font-family: 'Inter', -apple-system, sans-serif;
@@ -92,10 +172,34 @@ nav {
 }
 header.scrolled .logo { color: var(--ink); }
 
+/* Skip nav — accessibility */
+.skip-nav {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -1;
+}
+.skip-nav:focus {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  background: var(--ink);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  z-index: 9999;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2rem;
   list-style: none;
 }
 
@@ -104,7 +208,7 @@ header.scrolled .logo { color: var(--ink); }
   font-weight: 400;
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.8);
   transition: color 0.3s;
   position: relative;
   padding-bottom: 2px;
@@ -213,7 +317,7 @@ header.scrolled .menu-toggle span { background: var(--ink); }
   font-size: clamp(14rem, 22vw, 28rem);
   font-weight: 300;
   font-style: italic;
-  color: rgba(255,255,255,0.025);
+  color: rgba(255,255,255,0.05);
   line-height: 1;
   pointer-events: none;
   user-select: none;
@@ -256,14 +360,14 @@ header.scrolled .menu-toggle span { background: var(--ink); }
 .hero-h1 em {
   font-style: italic;
   font-weight: 300;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.55);
 }
 
 .hero-body {
   font-size: 0.88rem;
   font-weight: 300;
   line-height: 1.9;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.6);
   max-width: 360px;
   margin-bottom: 2.5rem;
   opacity: 0;
@@ -284,7 +388,8 @@ header.scrolled .menu-toggle span { background: var(--ink); }
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: white;
-  border: 1px solid rgba(255,255,255,0.35);
+  background: var(--sage);
+  border: 1px solid var(--sage);
   padding: 14px 32px;
   transition: all 0.3s;
   display: inline-block;
@@ -295,18 +400,18 @@ header.scrolled .menu-toggle span { background: var(--ink); }
   content: '';
   position: absolute;
   inset: 0;
-  background: white;
+  background: #6B7D5F;
   transform: translateX(-101%);
   transition: transform 0.35s cubic-bezier(0.76,0,0.24,1);
 }
-.btn-hero:hover { color: var(--ink); border-color: white; }
+.btn-hero:hover { color: white; border-color: #6B7D5F; }
 .btn-hero:hover::before { transform: translateX(0); }
 .btn-hero span { position: relative; z-index: 1; }
 
 .hero-scroll {
   font-size: 0.7rem;
   letter-spacing: 1px;
-  color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.45);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -314,11 +419,11 @@ header.scrolled .menu-toggle span { background: var(--ink); }
 .hero-scroll-line {
   width: 1px;
   height: 48px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(255,255,255,0));
+  background: linear-gradient(to bottom, rgba(255,255,255,0.45), rgba(255,255,255,0));
   animation: scrollPulse 2.5s ease-in-out infinite;
 }
 
-/* Right image panel */
+/* Right image panel — botanical in natural light */
 .hero-right {
   position: relative;
   overflow: hidden;
@@ -328,8 +433,9 @@ header.scrolled .menu-toggle span { background: var(--ink); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 20%;
   transform: scale(1.06);
+  filter: sepia(0.08) saturate(1.1) brightness(1.02);
   animation: imgSettle 1.6s cubic-bezier(0.16,1,0.3,1) 0s forwards;
 }
 
@@ -365,20 +471,37 @@ header.scrolled .menu-toggle span { background: var(--ink); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Scroll reveals */
+/* Scroll reveals — progressive enhancement: content visible by default,
+   only hidden when JS is confirmed active (html.has-js) */
 .reveal {
-  opacity: 0;
-  transform: translateY(28px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1),
               transform 0.9s cubic-bezier(0.16,1,0.3,1);
+}
+html.has-js .reveal:not(.visible) {
+  opacity: 0;
+  transform: translateY(28px);
 }
 .reveal.visible { opacity: 1; transform: none; }
 
 .reveal-clip {
-  clip-path: inset(100% 0 0 0);
+  clip-path: inset(0 0 0 0);
   transition: clip-path 1.2s cubic-bezier(0.76,0,0.24,1);
 }
-.reveal-clip.visible { clip-path: inset(0% 0 0 0); }
+html.has-js .reveal-clip:not(.visible) {
+  clip-path: inset(100% 0 0 0);
+}
+.reveal-clip.visible { clip-path: inset(0 0 0 0); }
+
+/* Portrait photo reveal — gentle fade + scale (more elegant than clip wipe) */
+.reveal-photo {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1.4s cubic-bezier(0.16,1,0.3,1), transform 1.4s cubic-bezier(0.16,1,0.3,1);
+}
+html.has-js .reveal-photo:not(.visible) { opacity: 0; transform: scale(1.04); }
+.reveal-photo.visible { opacity: 1; transform: scale(1); }
 
 /* Stagger variants */
 .reveal[data-delay="1"] { transition-delay: 0.1s; }
@@ -440,12 +563,12 @@ header.scrolled .menu-toggle span { background: var(--ink); }
 /* ============================================================
    SHARED SECTION ELEMENTS
    ============================================================ */
-section { padding: 110px 0; }
+section { padding: 60px 0; }
 
 .section-label {
-  font-size: 0.68rem;
+  font-size: 0.74rem;
   font-weight: 500;
-  letter-spacing: 3px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--sage);
   margin-bottom: 1.2rem;
@@ -460,6 +583,10 @@ section { padding: 110px 0; }
   line-height: 1.1;
   margin-bottom: 1.5rem;
 }
+
+/* Responsive heading breaks: block on desktop, natural flow on narrow viewports */
+.section-h2 .hbr { display: block; }
+@media (max-width: 600px) { .section-h2 .hbr { display: inline; } }
 
 .section-h2 em {
   font-style: italic;
@@ -526,21 +653,32 @@ section { padding: 110px 0; }
 
 
 /* ============================================================
-   ABOUT NINA (only use of her photo)
+   ABOUT NINA — photo + text grid
    ============================================================ */
 .about { background: var(--parchment); }
 
 .about-grid {
   display: grid;
-  grid-template-columns: 5fr 6fr;
+  grid-template-columns: 6fr 5fr;
   gap: 5rem;
   align-items: start;
 }
 
 .about-photo-col { position: sticky; top: 110px; }
 
-.about-photo-frame {
-  position: relative;
+.about-photo-frame { position: relative; }
+
+.about-photo-frame::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: -14px;
+  right: 14px;
+  bottom: -14px;
+  border: 1.5px solid var(--sage);
+  opacity: 0.38;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .about-photo-frame img {
@@ -548,16 +686,22 @@ section { padding: 110px 0; }
   height: 580px;
   object-fit: cover;
   object-position: center top;
+  position: relative;
+  z-index: 1;
 }
 
 .about-badge {
   position: absolute;
   bottom: -1px;
-  right: -2rem;
+  left: 0;
   background: var(--white);
   padding: 1.4rem 1.8rem;
   box-shadow: var(--shadow-md);
   min-width: 230px;
+  z-index: 2;
+}
+@media (min-width: 1100px) {
+  .about-badge { left: -2rem; }
 }
 
 .badge-tag {
@@ -586,12 +730,18 @@ section { padding: 110px 0; }
 
 .about-content .body-text { margin-bottom: 1.3rem; }
 
+/* Bigger "Meet Nina" label — trust-critical section */
+.about .section-label {
+  font-size: 0.82rem;
+  letter-spacing: 3.5px;
+}
+
 .about-creds {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
-  margin-top: 2.5rem;
-  padding-top: 2.5rem;
+  gap: 1rem;
+  margin-top: 1.6rem;
+  padding-top: 1.6rem;
   border-top: 1px solid rgba(28,25,20,0.1);
 }
 
@@ -615,7 +765,7 @@ section { padding: 110px 0; }
 .about-stats {
   display: flex;
   gap: 0;
-  margin-top: 2.5rem;
+  margin-top: 1.8rem;
   text-align: center;
   position: relative;
   z-index: 2;
@@ -663,18 +813,19 @@ section { padding: 110px 0; }
 .services .section-h2 em { color: rgba(255,255,255,0.3); }
 
 .svc-list {
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
 .svc-row {
   display: grid;
-  grid-template-columns: 72px 1fr 1.2fr;
-  align-items: start;
-  gap: 2.5rem;
-  padding: 1.8rem 0;
+  grid-template-columns: 52px 1fr 1fr auto;
+  align-items: center;
+  column-gap: 2.5rem;
+  row-gap: 0;
+  padding: 1.3rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   transition: background 0.25s;
-  cursor: default;
+  cursor: pointer;
   position: relative;
 }
 
@@ -695,107 +846,235 @@ section { padding: 110px 0; }
 
 .svc-num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 0.82rem;
+  font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: 1px;
-  color: rgba(255,255,255,0.2);
-  padding-top: 5px;
+  color: rgba(255,255,255,0.32);
   transition: color 0.25s;
 }
 .svc-row:hover .svc-num { color: var(--gold); }
 
 .svc-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.55rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
   font-weight: 400;
-  color: rgba(255,255,255,0.9);
-  line-height: 1.15;
+  letter-spacing: 0.1px;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.3;
   transition: color 0.25s;
 }
 .svc-row:hover .svc-name { color: white; }
 
 .svc-desc {
   font-size: 0.84rem;
-  color: rgba(255,255,255,0.38);
+  color: rgba(255,255,255,0.48);
   line-height: 1.75;
-  padding-top: 5px;
   transition: color 0.25s;
 }
-.svc-row:hover .svc-desc { color: rgba(255,255,255,0.58); }
+.svc-row:hover .svc-desc { color: rgba(255,255,255,0.65); }
+
+/* Featured / signature services get a subtle sage accent */
+.svc-row.svc-featured .svc-num { color: var(--sage); }
+.svc-row.svc-featured .svc-name { color: rgba(255,255,255,0.95); }
+
+/* Service expand/collapse */
+.svc-row { cursor: pointer; }
+
+.svc-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+.svc-toggle-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s, background 0.25s, transform 0.4s cubic-bezier(0.76,0,0.24,1);
+  flex-shrink: 0;
+}
+.svc-toggle-icon svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.4s cubic-bezier(0.76,0,0.24,1);
+}
+.svc-row:hover .svc-toggle-icon {
+  border-color: rgba(255,255,255,0.3);
+}
+.svc-row.expanded .svc-toggle-icon {
+  background: var(--sage);
+  border-color: var(--sage);
+}
+.svc-row.expanded .svc-toggle-icon svg {
+  transform: rotate(180deg);
+}
+
+/* Detail panel — spans all 3 grid columns */
+.svc-detail {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.16,1,0.3,1);
+  overflow: hidden;
+}
+.svc-row.expanded .svc-detail {
+  grid-template-rows: 1fr;
+}
+.svc-detail-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+.svc-detail-content {
+  padding: 1.2rem 0 1.2rem 52px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 3rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: -1px;
+}
+.svc-detail-item {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+.svc-detail-item::before {
+  content: '–';
+  color: var(--sage);
+  flex-shrink: 0;
+  font-size: 0.75rem;
+}
+.svc-detail-note {
+  grid-column: 1 / -1;
+  margin-top: 0.6rem;
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.28);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .svc-detail-content {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
+}
 
 
 /* ============================================================
    TESTIMONIALS — LARGE CENTERED PULL-QUOTES
    ============================================================ */
-.testimonials { background: var(--ivory); }
+.testimonials { background: var(--ivory); padding: 55px 0; }
 
 .test-inner {
-  max-width: 840px;
-  margin: 3.5rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin: 2.5rem auto 0;
 }
+
+/* Google review anchor badge */
+.review-anchor {
+  text-align: center;
+  margin: 0 auto 2.5rem;
+}
+.review-anchor-stars {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  display: inline-block;
+  animation: gentle-glow 3s ease-in-out infinite;
+}
+@keyframes gentle-glow {
+  0%, 100% { text-shadow: 0 0 0 transparent; }
+  50% { text-shadow: 0 0 18px rgba(184,154,102,0.3); }
+}
+.review-anchor-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-top: 0.5rem;
+}
+.review-anchor-label a {
+  color: var(--sage);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(122,140,110,0.35);
+  transition: border-color 0.3s;
+}
+.review-anchor-label a:hover { border-color: var(--sage); }
 
 .test-item {
   text-align: center;
-  padding: 4rem 0;
-  border-bottom: 1px solid rgba(28,25,20,0.08);
+  padding: 2rem 1.5rem;
+  background: var(--white);
+  border: 1px solid rgba(28,25,20,0.06);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-.test-item:last-child { border-bottom: none; padding-bottom: 0; }
 
 .test-item::before {
   content: '"';
   font-family: 'Cormorant Garamond', serif;
-  font-size: 8rem;
+  font-size: 4rem;
   font-weight: 300;
-  color: rgba(28,25,20,0.05);
-  position: absolute;
-  top: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  color: rgba(122,140,110,0.15);
   line-height: 1;
   pointer-events: none;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 .test-stars {
-  font-size: 0.78rem;
-  color: var(--gold);
-  letter-spacing: 5px;
-  margin-bottom: 1.8rem;
-  position: relative;
+  display: none;
 }
 
 .test-quote {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
   font-style: italic;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--ink);
-  margin-bottom: 2rem;
-  position: relative;
+  margin-bottom: 1.4rem;
+  flex: 1;
 }
 
 .test-author {
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--ash-light);
 }
 
+@media (max-width: 768px) {
+  .test-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
 
 /* ============================================================
    FIRST VISIT — 3 STEPS
    ============================================================ */
-.first-visit { background: var(--parchment); }
+.first-visit { background: var(--parchment); padding: 55px 0; }
 
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   background: rgba(28,25,20,0.08);
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
 .step-card {
@@ -822,13 +1101,14 @@ section { padding: 110px 0; }
   font-family: 'Cormorant Garamond', serif;
   font-size: 4rem;
   font-weight: 300;
-  color: rgba(28,25,20,0.08);
+  color: var(--sage);
+  opacity: 0.35;
   line-height: 1;
   margin-bottom: 1.5rem;
-  transition: color 0.3s;
+  transition: opacity 0.3s, color 0.3s;
 }
 
-.step-card:hover .step-n { color: rgba(122,140,110,0.2); }
+.step-card:hover .step-n { opacity: 0.6; }
 
 .step-title {
   font-family: 'Cormorant Garamond', serif;
@@ -847,13 +1127,13 @@ section { padding: 110px 0; }
 /* ============================================================
    INSURANCE
    ============================================================ */
-.insurance { background: var(--ivory); }
+.insurance { background: var(--ivory); padding: 55px 0; }
 
 .ins-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
 .ins-card {
@@ -879,13 +1159,77 @@ section { padding: 110px 0; }
 }
 .ins-card p:last-child { margin-bottom: 0; }
 
+.ins-logos {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(28,25,20,0.06);
+}
+.ins-logo-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ash);
+  opacity: 0.5;
+  padding: 6px 12px;
+  border: 1px solid rgba(28,25,20,0.1);
+  border-radius: 3px;
+}
+
+/* Section divider — decorative leaf accent between sections */
+.section-divider {
+  text-align: center;
+  padding: 0.5rem 0;
+  line-height: 1;
+}
+.section-divider svg {
+  width: 40px;
+  height: 40px;
+  opacity: 0.2;
+}
+
+/* Inline booking CTA (used after First Visit section) */
+.steps-cta {
+  text-align: center;
+  margin-top: 3.5rem;
+}
+.btn-book {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: white;
+  background: var(--sage);
+  border: 1px solid var(--sage);
+  padding: 14px 36px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-book::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #6B7D5F;
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.76,0,0.24,1);
+}
+.btn-book:hover { border-color: #6B7D5F; }
+.btn-book:hover::before { transform: translateX(0); }
+.btn-book span { position: relative; z-index: 1; }
+
 
 /* ============================================================
    CTA SECTION
    ============================================================ */
 .cta-section {
-  background: var(--sage);
-  padding: 100px 0;
+  background: var(--ink);
+  padding: 70px 0;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -899,7 +1243,7 @@ section { padding: 110px 0; }
   font-size: clamp(8rem, 18vw, 22rem);
   font-weight: 300;
   font-style: italic;
-  color: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.07);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -919,6 +1263,8 @@ section { padding: 110px 0; }
   position: relative;
 }
 .cta-section h2 em { font-style: italic; font-weight: 300; opacity: 0.7; }
+.cta-section h2 .hbr { display: block; }
+@media (max-width: 600px) { .cta-section h2 .hbr { display: inline; } }
 
 .cta-section p {
   font-size: 0.88rem;
@@ -934,7 +1280,8 @@ section { padding: 110px 0; }
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: white;
-  border: 1px solid rgba(255,255,255,0.45);
+  background: var(--sage);
+  border: 1px solid var(--sage);
   padding: 16px 44px;
   transition: all 0.3s;
   position: relative;
@@ -944,11 +1291,11 @@ section { padding: 110px 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background: white;
+  background: #5e6e54;
   transform: translateX(-101%);
   transition: transform 0.35s cubic-bezier(0.76,0,0.24,1);
 }
-.btn-cta:hover { color: var(--sage); border-color: white; }
+.btn-cta:hover { color: white; border-color: #5e6e54; }
 .btn-cta:hover::before { transform: translateX(0); }
 .btn-cta span { position: relative; z-index: 1; }
 
@@ -956,32 +1303,32 @@ section { padding: 110px 0; }
 /* ============================================================
    LOCATION
    ============================================================ */
-.location { background: var(--parchment); }
+.location { background: var(--parchment); padding: 45px 0 55px; }
 
 .loc-grid {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 0;
-  margin-top: 4rem;
+  margin-top: 2.5rem;
   background: rgba(28,25,20,0.06);
   gap: 2px;
 }
 
 .loc-card {
   background: var(--ink);
-  padding: 3.5rem;
+  padding: 2.5rem;
   color: white;
 }
 
 .loc-card h3 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 400;
   color: white;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.8rem;
 }
 
-.loc-field { margin-bottom: 1.8rem; }
+.loc-field { margin-bottom: 1.2rem; }
 
 .loc-label {
   font-size: 0.66rem;
@@ -1013,26 +1360,57 @@ section { padding: 110px 0; }
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: white;
-  border: 1px solid rgba(255,255,255,0.3);
+  background: var(--sage);
+  border: 1px solid var(--sage);
   padding: 12px 28px;
   cursor: pointer;
-  background: none;
   font-family: 'Inter', sans-serif;
   transition: all 0.3s;
 }
-.loc-book:hover { background: white; color: var(--ink); border-color: white; }
+.loc-book:hover { background: #6B7D5F; border-color: #6B7D5F; color: white; }
+
+.loc-phone-link {
+  display: block;
+  text-align: center;
+  margin-top: 0.9rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.loc-phone-link:hover { color: rgba(255,255,255,0.8); }
 
 .loc-map {
   overflow: hidden;
-  min-height: 420px;
+  height: 340px;
+  min-height: 340px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--parchment);
 }
-.loc-map iframe {
-  width: 100%;
-  height: 100%;
-  min-height: 420px;
-  border: 0;
+/* Map directions strip */
+.loc-map-directions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: block;
+  text-align: center;
+  padding: 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--sage);
+  background: white;
+  border-top: 1px solid rgba(28,25,20,0.07);
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s;
 }
+.loc-map-directions:hover { background: var(--parchment); color: var(--ink); }
 
 
 /* ============================================================
@@ -1080,7 +1458,11 @@ footer h5 {
 
 footer ul { list-style: none; }
 
-footer li { margin-bottom: 0.65rem; }
+footer li {
+  margin-bottom: 0.65rem;
+  font-size: 0.83rem;
+  line-height: 1.65;
+}
 
 footer li a {
   font-size: 0.83rem;
@@ -1099,7 +1481,7 @@ footer li a:hover { color: white; }
 }
 
 .footer-bar a {
-  color: var(--blush);
+  color: var(--gold);
   transition: opacity 0.3s;
 }
 .footer-bar a:hover { opacity: 0.8; }
@@ -1109,10 +1491,23 @@ footer li a:hover { color: white; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
-  .svc-row { grid-template-columns: 60px 1fr; }
+  .svc-row { grid-template-columns: 44px 1fr auto; }
   .svc-desc { display: none; }
   .about-badge { position: static; margin-top: 1.5rem; right: auto; bottom: auto; }
   .about-photo-col { position: static; }
+  .nav-links { gap: 1.4rem; }
+}
+
+@media (max-width: 900px) {
+  .nav-links li:nth-child(4),
+  .nav-links li:nth-child(5) { display: none; }
+}
+
+/* About grid — guard intermediate viewport (doesn't stack until 768px) */
+@media (max-width: 980px) and (min-width: 769px) {
+  .about-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .about-photo-frame img { height: 460px; }
+  .about-badge { left: 0; }
 }
 
 @media (max-width: 768px) {
@@ -1140,7 +1535,22 @@ footer li a:hover { color: white; }
     min-height: 100svh;
   }
   .hero-right { display: none; }
-  .hero-left { padding: 0 2rem 8vh; padding-top: 110px; min-height: 100svh; }
+  .hero-left {
+    padding: 0 2rem 8vh;
+    padding-top: 110px;
+    min-height: 100svh;
+    background: var(--ink) url('https://images.unsplash.com/photo-1620818789320-78ff6e9eaa54?w=600&q=60&fit=crop') center/cover no-repeat;
+    background-blend-mode: soft-light;
+  }
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(28,25,20,0.88) 0%, rgba(28,25,20,0.95) 60%, rgba(28,25,20,1) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-left > * { position: relative; z-index: 1; }
 
   .phil-grid { grid-template-columns: 1fr; gap: 3rem; }
   .phil-img-wrap::after { display: none; }
@@ -1151,8 +1561,6 @@ footer li a:hover { color: white; }
   .about-creds { grid-template-columns: 1fr; }
   .about-stats { flex-wrap: wrap; }
   .about-stat { flex: 1 1 45%; }
-  .about-stat:first-child { border-radius: 4px 0 0 0; }
-  .about-stat:last-child { border-radius: 0 0 4px 0; }
 
   .steps-grid { grid-template-columns: 1fr; }
   .ins-grid { grid-template-columns: 1fr; gap: 2px; background: rgba(28,25,20,0.08); }
@@ -1164,6 +1572,7 @@ footer li a:hover { color: white; }
 
   .svc-row { grid-template-columns: 1fr; }
   .svc-num { display: none; }
+  .svc-detail-content { grid-template-columns: 1fr; padding: 1rem 0; }
 
   section { padding: 70px 0; }
   .test-inner { margin-top: 2rem; }
@@ -1178,7 +1587,6 @@ footer li a:hover { color: white; }
   .about-stat { border-radius: 0; }
   .about-stat:first-child { border-radius: 4px 4px 0 0; }
   .about-stat:last-child { border-radius: 0 0 4px 4px; }
-  .about-stat:last-child { grid-column: span 1; }
   .cta-section { padding: 70px 0; }
 }
 
@@ -1186,9 +1594,12 @@ footer li a:hover { color: white; }
 </head>
 <body>
 
+<a href="#philosophy" class="skip-nav">Skip to content</a>
+
 <!-- ============================================================
      HEADER
      ============================================================ -->
+<a href="#philosophy" class="skip-nav">Skip to main content</a>
 <header id="mainHeader">
   <nav>
     <a href="#" class="logo">Evexia</a>
@@ -1199,7 +1610,9 @@ footer li a:hover { color: white; }
       <li><a href="#philosophy">Approach</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#testimonials">Stories</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#insurance">Pricing</a></li>
+      <li><a href="#location">Find Us</a></li>
     </ul>
     <a href="#location" class="nav-cta">Book a Visit</a>
   </nav>
@@ -1246,8 +1659,8 @@ footer li a:hover { color: white; }
   <div class="hero-right">
     <img
       class="hero-img"
-      src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=900&q=85&fit=crop&crop=top"
-      alt="A patient who feels genuinely cared for"
+      src="https://images.unsplash.com/photo-1620818789320-78ff6e9eaa54?w=1200&q=90&fit=crop"
+      alt="Green botanical in natural light — Evexia Primary Care"
     >
   </div>
 
@@ -1284,17 +1697,18 @@ footer li a:hover { color: white; }
       <div class="phil-img-wrap">
         <img
           class="phil-img reveal-clip"
-          src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=85"
-          alt="The practice of presence"
+          src="https://images.unsplash.com/photo-1585130557898-0d191552ee66?w=700&q=85&fit=crop"
+          alt="Eucalyptus branches in natural light — Evexia wellness"
+          loading="eager"
         >
       </div>
 
       <div class="phil-text">
         <span class="section-label reveal">Our Approach</span>
-        <h2 class="section-h2 reveal" data-delay="1">A different kind<br><em>of primary care</em></h2>
+        <h2 class="section-h2 reveal" data-delay="1">A different kind<span class="hbr"> </span><em>of primary care</em></h2>
         <p class="body-text reveal" data-delay="2">We believe your health is not a problem to be solved. It's a relationship to be built. Evexia exists for patients who want more — more time, more clarity, more of a provider who truly knows them.</p>
         <p class="body-text reveal" data-delay="3">Every visit is unhurried. Every concern is taken seriously. We lead with prevention, speak plainly, and treat you as an intelligent adult who deserves to understand their own health.</p>
-        <blockquote class="phil-quote reveal" data-delay="4">"Evexia" is the ancient Greek word for a state of wellbeing that arises from genuine health — not just the absence of illness, but the presence of vitality.</blockquote>
+        <blockquote class="phil-quote reveal" data-delay="4">We measure success not by the number of patients we see, but by the depth of care we provide to each one.</blockquote>
       </div>
 
     </div>
@@ -1303,30 +1717,15 @@ footer li a:hover { color: white; }
 
 
 <!-- ============================================================
-     ABOUT NINA — only appearance of her photo
+     ABOUT NINA — photo + text grid
      ============================================================ -->
 <section class="about" id="about">
   <div class="container">
     <div class="about-grid">
 
-      <div class="about-photo-col">
-        <div class="about-photo-frame">
-          <img
-            class="reveal-clip"
-            src="https://images.squarespace-cdn.com/content/v1/69a82593885cae4e228d4d4b/eb2b5716-190f-4f1e-bcc9-dbb44d2be775/headshot+1.jpg"
-            alt="Nina Pliakos, FNP-C"
-          >
-          <div class="about-badge reveal" data-delay="2">
-            <div class="badge-tag">Your Provider</div>
-            <div class="badge-name">Nina Pliakos</div>
-            <div class="badge-cred">FNP-C · Board-Certified Family NP</div>
-          </div>
-        </div>
-      </div>
-
       <div class="about-content">
         <span class="section-label reveal">Meet Nina</span>
-        <h2 class="section-h2 reveal" data-delay="1">The provider<br><em>you've been looking for</em></h2>
+        <h2 class="section-h2 reveal" data-delay="1">The provider<span class="hbr"> </span><em>you've been looking for</em></h2>
 
         <p class="body-text reveal" data-delay="2">Nina Pliakos is a Board-Certified Family Nurse Practitioner with over a decade of clinical experience. She spent years in high-volume healthcare settings watching something erode: the relationship between patient and provider. She started Evexia to restore it.</p>
 
@@ -1352,6 +1751,21 @@ footer li a:hover { color: white; }
             <div class="cred-degree">Prevention &amp; Women's Health</div>
           </div>
         </div>
+      </div>
+
+      <div class="about-photo-col">
+        <div class="about-photo-frame">
+          <img
+            class="reveal-photo"
+            src="https://images.squarespace-cdn.com/content/v1/69a82593885cae4e228d4d4b/eb2b5716-190f-4f1e-bcc9-dbb44d2be775/headshot+1.jpg"
+            alt="Nina Pliakos, FNP-C"
+          >
+          <div class="about-badge reveal" data-delay="2">
+            <div class="badge-tag">Your Provider</div>
+            <div class="badge-name">Nina Pliakos</div>
+            <div class="badge-cred">FNP-C · Board-Certified Family NP</div>
+          </div>
+        </div>
 
         <div class="about-stats">
           <div class="about-stat">
@@ -1371,8 +1785,8 @@ footer li a:hover { color: white; }
             <div class="about-stat-l">Week Appointments</div>
           </div>
         </div>
-
       </div>
+
     </div>
   </div>
 </section>
@@ -1384,56 +1798,145 @@ footer li a:hover { color: white; }
 <section class="services" id="services">
   <div class="container">
     <span class="section-label reveal">What We Offer</span>
-    <h2 class="section-h2 reveal" data-delay="1">Comprehensive care,<br><em>one patient at a time</em></h2>
+    <h2 class="section-h2 reveal" data-delay="1">Comprehensive care,<span class="hbr"> </span><em>one patient at a time</em></h2>
 
     <div class="svc-list">
 
-      <div class="svc-row reveal" data-delay="1">
+      <div class="svc-row svc-featured reveal" data-delay="1">
         <div class="svc-num">01</div>
         <div class="svc-name">Wellness Exams</div>
         <div class="svc-desc">Annual physicals, preventive screenings, and health optimization tailored to your life stage and goals.</div>
+        <div class="svc-toggle"><div class="svc-toggle-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="svc-detail"><div class="svc-detail-inner"><div class="svc-detail-content">
+          <div class="svc-detail-item">Comprehensive annual physical exam</div>
+          <div class="svc-detail-item">Age-appropriate cancer screenings</div>
+          <div class="svc-detail-item">Cardiovascular risk assessment</div>
+          <div class="svc-detail-item">Metabolic panel &amp; bloodwork review</div>
+          <div class="svc-detail-item">Immunizations &amp; vaccine updates</div>
+          <div class="svc-detail-item">Vision, hearing &amp; sensory checks</div>
+          <div class="svc-detail-item">Lifestyle &amp; nutrition guidance</div>
+          <div class="svc-detail-item">Personalized health goal planning</div>
+          <div class="svc-detail-note">Includes same-day results review and a written summary of your health plan.</div>
+        </div></div></div>
       </div>
 
       <div class="svc-row reveal" data-delay="2">
         <div class="svc-num">02</div>
         <div class="svc-name">Chronic Disease Management</div>
         <div class="svc-desc">Personalized, long-term plans for diabetes, hypertension, thyroid conditions, and more.</div>
+        <div class="svc-toggle"><div class="svc-toggle-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="svc-detail"><div class="svc-detail-inner"><div class="svc-detail-content">
+          <div class="svc-detail-item">Type 1 &amp; Type 2 diabetes care</div>
+          <div class="svc-detail-item">Hypertension monitoring &amp; management</div>
+          <div class="svc-detail-item">High cholesterol &amp; lipid management</div>
+          <div class="svc-detail-item">Thyroid disorders (hypo/hyperthyroid)</div>
+          <div class="svc-detail-item">Asthma &amp; COPD ongoing support</div>
+          <div class="svc-detail-item">Chronic pain coordination</div>
+          <div class="svc-detail-item">Medication management &amp; adjustments</div>
+          <div class="svc-detail-item">Specialist referral &amp; care coordination</div>
+          <div class="svc-detail-note">Long-term relationship built on understanding your full history — not just your chart.</div>
+        </div></div></div>
       </div>
 
-      <div class="svc-row reveal" data-delay="3">
+      <div class="svc-row svc-featured reveal" data-delay="3">
         <div class="svc-num">03</div>
         <div class="svc-name">Women's Health</div>
         <div class="svc-desc">Hormone management, contraception counseling, fertility support, and comprehensive menopause care.</div>
+        <div class="svc-toggle"><div class="svc-toggle-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="svc-detail"><div class="svc-detail-inner"><div class="svc-detail-content">
+          <div class="svc-detail-item">Annual well-woman exams &amp; Pap smears</div>
+          <div class="svc-detail-item">Hormone balancing &amp; HRT evaluation</div>
+          <div class="svc-detail-item">Contraception counseling &amp; prescribing</div>
+          <div class="svc-detail-item">PCOS diagnosis &amp; management</div>
+          <div class="svc-detail-item">Perimenopause &amp; menopause care</div>
+          <div class="svc-detail-item">Fertility support &amp; cycle tracking</div>
+          <div class="svc-detail-item">STI screening &amp; sexual health</div>
+          <div class="svc-detail-item">Bone density &amp; osteoporosis prevention</div>
+          <div class="svc-detail-note">A safe, unhurried space for the conversations your previous provider never made time for.</div>
+        </div></div></div>
       </div>
 
       <div class="svc-row reveal" data-delay="4">
         <div class="svc-num">04</div>
         <div class="svc-name">Mental Wellness</div>
         <div class="svc-desc">Integrated screening, compassionate counseling, and expert referrals for mental health support.</div>
+        <div class="svc-toggle"><div class="svc-toggle-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="svc-detail"><div class="svc-detail-inner"><div class="svc-detail-content">
+          <div class="svc-detail-item">Depression &amp; anxiety screening (PHQ-9, GAD-7)</div>
+          <div class="svc-detail-item">ADHD evaluation &amp; management</div>
+          <div class="svc-detail-item">Medication initiation &amp; ongoing management</div>
+          <div class="svc-detail-item">Behavioral health integration</div>
+          <div class="svc-detail-item">Sleep disorder assessment</div>
+          <div class="svc-detail-item">Stress &amp; burnout counseling</div>
+          <div class="svc-detail-item">Therapist &amp; psychiatry referrals</div>
+          <div class="svc-detail-item">Crisis support coordination</div>
+          <div class="svc-detail-note">Mental health is health. Every visit includes a check-in on how you're actually doing.</div>
+        </div></div></div>
       </div>
 
       <div class="svc-row reveal" data-delay="5">
         <div class="svc-num">05</div>
         <div class="svc-name">Weight Management</div>
         <div class="svc-desc">Evidence-based, root-cause programs — not gimmicks. Sustainable health, not short-term fixes.</div>
+        <div class="svc-toggle"><div class="svc-toggle-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="svc-detail"><div class="svc-detail-inner"><div class="svc-detail-content">
+          <div class="svc-detail-item">Comprehensive metabolic assessment</div>
+          <div class="svc-detail-item">Insulin resistance &amp; hormonal workup</div>
+          <div class="svc-detail-item">GLP-1 medication evaluation (Ozempic, Wegovy)</div>
+          <div class="svc-detail-item">Personalized nutrition planning</div>
+          <div class="svc-detail-item">Body composition analysis</div>
+          <div class="svc-detail-item">Behavioral &amp; lifestyle coaching</div>
+          <div class="svc-detail-item">Ongoing progress monitoring</div>
+          <div class="svc-detail-item">Emotional eating support &amp; referrals</div>
+          <div class="svc-detail-note">We address root causes — metabolic, hormonal, behavioral — not just calorie counts.</div>
+        </div></div></div>
       </div>
 
       <div class="svc-row reveal" data-delay="6">
         <div class="svc-num">06</div>
         <div class="svc-name">Telehealth &amp; Lab Coordination</div>
         <div class="svc-desc">Virtual visits for routine follow-ups, plus complete lab work with clear explanations of every result.</div>
+        <div class="svc-toggle"><div class="svc-toggle-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="svc-detail"><div class="svc-detail-inner"><div class="svc-detail-content">
+          <div class="svc-detail-item">Secure HIPAA-compliant video visits</div>
+          <div class="svc-detail-item">Routine follow-ups &amp; medication refills</div>
+          <div class="svc-detail-item">Lab orders via LabCorp &amp; Quest Diagnostics</div>
+          <div class="svc-detail-item">Plain-language results interpretation</div>
+          <div class="svc-detail-item">Specialist referral paperwork</div>
+          <div class="svc-detail-item">Urgent symptom triage</div>
+          <div class="svc-detail-item">Prescription management</div>
+          <div class="svc-detail-item">After-visit care coordination</div>
+          <div class="svc-detail-note">No lab result goes unexplained. We walk you through every number in plain English.</div>
+        </div></div></div>
       </div>
 
-      <div class="svc-row reveal" data-delay="7">
+      <div class="svc-row svc-featured reveal" data-delay="7">
         <div class="svc-num">07</div>
         <div class="svc-name">Preventive Medicine</div>
         <div class="svc-desc">Proactive strategies, lifestyle guidance, and early intervention before disease takes hold.</div>
+        <div class="svc-toggle"><div class="svc-toggle-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="svc-detail"><div class="svc-detail-inner"><div class="svc-detail-content">
+          <div class="svc-detail-item">Cancer risk stratification &amp; screening plans</div>
+          <div class="svc-detail-item">Genetic risk counseling &amp; testing referrals</div>
+          <div class="svc-detail-item">Cardiovascular disease prevention</div>
+          <div class="svc-detail-item">Diabetes prevention program</div>
+          <div class="svc-detail-item">Smoking cessation support</div>
+          <div class="svc-detail-item">Alcohol &amp; substance use counseling</div>
+          <div class="svc-detail-item">Immunizations &amp; travel health</div>
+          <div class="svc-detail-item">Longevity &amp; healthspan optimization</div>
+          <div class="svc-detail-note">Most chronic disease is preventable. At Evexia, that opportunity is never missed.</div>
+        </div></div></div>
       </div>
 
     </div>
   </div>
 </section>
 
+<div class="section-divider">
+  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 4c-2 8-8 14-16 16 8 2 14 8 16 16 2-8 8-14 16-16-8-2-14-8-16-16z" fill="#7A8C6E"/>
+  </svg>
+</div>
 
 <!-- ============================================================
      TESTIMONIALS — PULL-QUOTE STYLE
@@ -1443,23 +1946,27 @@ footer li a:hover { color: white; }
     <span class="section-label reveal" style="text-align:center;display:block">Patient Stories</span>
     <h2 class="section-h2 reveal" data-delay="1" style="text-align:center">What our patients say</h2>
 
+    <div class="review-anchor reveal">
+      <div class="review-anchor-stars">4.9★</div>
+      <span class="review-anchor-label">
+        <a href="#" onclick="return false;" rel="noopener">47 Reviews on Google</a>
+      </span>
+    </div>
+
     <div class="test-inner">
 
       <div class="test-item reveal">
-        <div class="test-stars">★ ★ ★ ★ ★</div>
-        <p class="test-quote">"Nina actually listens. She spent 45 minutes with me on my first visit asking questions I've never been asked by a doctor. I finally feel like someone understands my health."</p>
+        <p class="test-quote">"She spent 45 minutes with me on my first visit. I finally feel like someone understands my health."</p>
         <div class="test-author">Sarah M. &nbsp;·&nbsp; Patient since 2024</div>
       </div>
 
       <div class="test-item reveal" data-delay="1">
-        <div class="test-stars">★ ★ ★ ★ ★</div>
-        <p class="test-quote">"After years of rushed appointments, I found a provider who treats me like a person, not a patient number. Evexia is the kind of healthcare everyone deserves but rarely finds."</p>
+        <p class="test-quote">"A provider who treats me like a person, not a patient number. The kind of healthcare everyone deserves."</p>
         <div class="test-author">James T. &nbsp;·&nbsp; Patient since 2024</div>
       </div>
 
       <div class="test-item reveal" data-delay="2">
-        <div class="test-stars">★ ★ ★ ★ ★</div>
-        <p class="test-quote">"Instead of just prescribing, Nina helped me understand the root causes. Her preventive, thoughtful approach is something I wish I'd found years ago."</p>
+        <p class="test-quote">"Instead of just prescribing, Nina helped me understand the root causes. I wish I'd found her years ago."</p>
         <div class="test-author">Michelle R. &nbsp;·&nbsp; Patient since 2025</div>
       </div>
 
@@ -1474,7 +1981,7 @@ footer li a:hover { color: white; }
 <section class="first-visit" id="first-visit">
   <div class="container">
     <span class="section-label reveal">Getting Started</span>
-    <h2 class="section-h2 reveal" data-delay="1">Your first visit,<br><em>in three simple steps</em></h2>
+    <h2 class="section-h2 reveal" data-delay="1">Your first visit,<span class="hbr"> </span><em>in three simple steps</em></h2>
 
     <div class="steps-grid">
       <div class="step-card reveal">
@@ -1493,9 +2000,18 @@ footer li a:hover { color: white; }
         <p class="step-body">Together you build a personalized plan around your goals — prevention, management, or optimization. It's your health, your plan.</p>
       </div>
     </div>
+
+    <div class="steps-cta reveal" data-delay="3">
+      <a href="#location" class="btn-book"><span>Book Your Visit</span></a>
+    </div>
   </div>
 </section>
 
+<div class="section-divider">
+  <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 4c-2 8-8 14-16 16 8 2 14 8 16 16 2-8 8-14 16-16-8-2-14-8-16-16z" fill="#7A8C6E"/>
+  </svg>
+</div>
 
 <!-- ============================================================
      INSURANCE
@@ -1503,19 +2019,28 @@ footer li a:hover { color: white; }
 <section class="insurance" id="insurance">
   <div class="container">
     <span class="section-label reveal">Pricing &amp; Coverage</span>
-    <h2 class="section-h2 reveal" data-delay="1">Transparent,<br><em>accessible care</em></h2>
+    <h2 class="section-h2 reveal" data-delay="1">Transparent,<span class="hbr"> </span><em>accessible care</em></h2>
 
     <div class="ins-grid">
       <div class="ins-card reveal">
         <h3>Insurance Accepted</h3>
         <p>We accept most major plans including Arizona Blue Cross, Aetna, Cigna, United Healthcare, and others.</p>
         <p>We verify your coverage before your visit so there are no billing surprises.</p>
+        <div class="ins-logos reveal" data-delay="1">
+          <span class="ins-logo-item">Blue Cross</span>
+          <span class="ins-logo-item">Aetna</span>
+          <span class="ins-logo-item">Cigna</span>
+          <span class="ins-logo-item">UnitedHealthcare</span>
+        </div>
       </div>
       <div class="ins-card reveal" data-delay="1">
         <h3>Self-Pay Options</h3>
         <p>No insurance? No problem. First visit: <strong>$200</strong>. Follow-ups: <strong>$125</strong>. Quality care should be accessible to everyone.</p>
         <p>Flexible scheduling and payment plans available on request.</p>
       </div>
+    </div>
+    <div class="steps-cta reveal" data-delay="2" style="text-align:center;margin-top:2.5rem;">
+      <a href="#location" class="btn-book"><span>Book Your Visit</span></a>
     </div>
   </div>
 </section>
@@ -1526,9 +2051,9 @@ footer li a:hover { color: white; }
      ============================================================ -->
 <div class="cta-section">
   <div class="container" style="position:relative;z-index:2">
-    <h2 class="reveal">Ready to experience healthcare<br><em>the way it should be?</em></h2>
+    <h2 class="reveal">Ready to experience healthcare<span class="hbr"> </span><em>the way it should be?</em></h2>
     <p class="reveal" data-delay="1">Schedule your first visit and discover what unhurried, personalized care truly feels like.</p>
-    <a href="#location" class="btn-cta reveal" data-delay="2"><span>Book Your First Visit</span></a>
+    <a href="#location" class="btn-cta reveal" data-delay="2"><span>Book Your Visit</span></a>
   </div>
 </div>
 
@@ -1539,7 +2064,7 @@ footer li a:hover { color: white; }
 <section class="location" id="location">
   <div class="container">
     <span class="section-label reveal">Find Us</span>
-    <h2 class="section-h2 reveal" data-delay="1">Conveniently located<br><em>in Scottsdale</em></h2>
+    <h2 class="section-h2 reveal" data-delay="1">Conveniently located<span class="hbr"> </span><em>in Scottsdale</em></h2>
 
     <div class="loc-grid">
 
@@ -1561,16 +2086,27 @@ footer li a:hover { color: white; }
           <div class="loc-label">Hours</div>
           <div class="loc-value">Monday – Friday: 8am – 5pm<br>Saturday: By Appointment</div>
         </div>
-        <button class="loc-book" onclick="window.location.href='tel:+14805550147'">Book Your Appointment</button>
+        <button class="loc-book" onclick="window.location.href='mailto:hello@evexiaprimarycare.com?subject=New%20Patient%20Appointment%20Request&body=Hi%20Evexia%20team%2C%0A%0AI%27d%20like%20to%20schedule%20a%20new%20patient%20appointment.%0A%0AName%3A%20%0APhone%3A%20%0AInsurance%3A%20%0APreferred%20days%20%2F%20times%3A%20'">Request an Appointment</button>
+        <a href="tel:+14805550147" class="loc-phone-link">(480) 555-0147 &nbsp;·&nbsp; Call to book</a>
       </div>
 
       <div class="loc-map reveal" data-delay="1">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.0!2d-111.8880!3d33.5858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b0895e94a51a7%3A0x4f1c6a19e0a6fbb!2s9700+N+91st+St%2C+Scottsdale%2C+AZ+85258!5e0!3m2!1sen!2sus!4v1700000000000"
+          src="https://maps.google.com/maps?q=9700+N+91st+Street+Suite+A-115+Scottsdale+AZ+85258&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0; min-height:340px; display:block;"
           allowfullscreen=""
           loading="lazy"
-          title="Evexia Primary Care Location"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Evexia Primary Care location map"
         ></iframe>
+        <a
+          href="https://www.google.com/maps/place/9700+N+91st+St,+Scottsdale,+AZ+85258"
+          target="_blank"
+          rel="noopener"
+          class="loc-map-directions"
+        >Get Directions &rarr;</a>
       </div>
 
     </div>
@@ -1619,6 +2155,9 @@ footer li a:hover { color: white; }
      JAVASCRIPT
      ============================================================ -->
 <script>
+// ── Progressive enhancement: enable scroll-reveal hiding ────
+document.documentElement.classList.add('has-js');
+
 // ── Header scroll state ──────────────────────────────
 const header = document.getElementById('mainHeader');
 window.addEventListener('scroll', () => {
@@ -1653,9 +2192,9 @@ const revealObserver = new IntersectionObserver(entries => {
       e.target.classList.add('visible');
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
 
-document.querySelectorAll('.reveal, .reveal-clip').forEach(el => {
+document.querySelectorAll('.reveal, .reveal-clip, .reveal-photo').forEach(el => {
   revealObserver.observe(el);
 });
 
@@ -1675,7 +2214,7 @@ const counterObserver = new IntersectionObserver(entries => {
       }, 45);
     }
   });
-}, { threshold: 0.6 });
+}, { threshold: 0.25 });
 
 document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
 
@@ -1705,6 +2244,25 @@ if (heroImg) {
 // ── Logo click → scroll top ───────────────────────────
 document.querySelector('.logo').addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ── Failsafe: force-show all reveal elements after 3s ─
+// Catches cases where IntersectionObserver doesn't fire
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible), .reveal-clip:not(.visible), .reveal-photo:not(.visible)').forEach(el => {
+    el.classList.add('visible');
+  });
+}, 3000);
+
+// ── Service row expand/collapse ──────────────────────
+document.querySelectorAll('.svc-row').forEach(row => {
+  row.addEventListener('click', () => {
+    const isExpanded = row.classList.contains('expanded');
+    // Close all other open rows
+    document.querySelectorAll('.svc-row.expanded').forEach(r => r.classList.remove('expanded'));
+    // Toggle clicked row (re-open if it wasn't the one already open)
+    if (!isExpanded) row.classList.add('expanded');
+  });
 });
 </script>
 
